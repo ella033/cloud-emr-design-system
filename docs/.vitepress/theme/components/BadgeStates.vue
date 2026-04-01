@@ -3,12 +3,12 @@ const colors = ['blue', 'green', 'red', 'yellow', 'teal', 'gray']
 const sizes = ['xsmall', 'small', 'medium', 'large']
 
 const colorMap = {
-  blue: { fill: { bg: '#3B82F6', text: '#fff' }, weak: { bg: '#DBEAFE', text: '#1D4ED8' } },
-  green: { fill: { bg: '#22C55E', text: '#fff' }, weak: { bg: '#DCFCE7', text: '#15803D' } },
-  red: { fill: { bg: '#DC2626', text: '#fff' }, weak: { bg: '#FEE2E2', text: '#DC2626' } },
-  yellow: { fill: { bg: '#EAB308', text: '#fff' }, weak: { bg: '#FEF9C3', text: '#A16207' } },
-  teal: { fill: { bg: '#14B8A6', text: '#fff' }, weak: { bg: '#CCFBF1', text: '#0F766E' } },
-  gray: { fill: { bg: '#64748B', text: '#fff' }, weak: { bg: '#F1F5F9', text: '#475569' } },
+  blue: { solid: { bg: '#3B82F6', text: '#fff' }, subtle: { bg: '#DBEAFE', text: '#1D4ED8' } },
+  green: { solid: { bg: '#22C55E', text: '#fff' }, subtle: { bg: '#DCFCE7', text: '#15803D' } },
+  red: { solid: { bg: '#DC2626', text: '#fff' }, subtle: { bg: '#FEE2E2', text: '#DC2626' } },
+  yellow: { solid: { bg: '#EAB308', text: '#fff' }, subtle: { bg: '#FEF9C3', text: '#A16207' } },
+  teal: { solid: { bg: '#14B8A6', text: '#fff' }, subtle: { bg: '#CCFBF1', text: '#0F766E' } },
+  gray: { solid: { bg: '#64748B', text: '#fff' }, subtle: { bg: '#F1F5F9', text: '#475569' } },
 }
 
 const sizeMap = {
@@ -19,16 +19,16 @@ const sizeMap = {
 }
 
 const emrExamples = [
-  { label: '대기', variant: 'fill', color: 'yellow' },
-  { label: '진료중', variant: 'fill', color: 'blue' },
-  { label: '진료완료', variant: 'fill', color: 'green' },
-  { label: '응급', variant: 'fill', color: 'red' },
-  { label: '취소', variant: 'weak', color: 'gray' },
-  { label: '정상', variant: 'weak', color: 'green' },
-  { label: '주의', variant: 'weak', color: 'yellow' },
-  { label: '위험', variant: 'fill', color: 'red' },
-  { label: '처방완료', variant: 'weak', color: 'blue' },
-  { label: '조제중', variant: 'weak', color: 'teal' },
+  { label: '대기', variant: 'solid', color: 'yellow' },
+  { label: '진료중', variant: 'solid', color: 'blue' },
+  { label: '진료완료', variant: 'solid', color: 'green' },
+  { label: '응급', variant: 'solid', color: 'red' },
+  { label: '취소', variant: 'subtle', color: 'gray' },
+  { label: '정상', variant: 'subtle', color: 'green' },
+  { label: '주의', variant: 'subtle', color: 'yellow' },
+  { label: '위험', variant: 'solid', color: 'red' },
+  { label: '처방완료', variant: 'subtle', color: 'blue' },
+  { label: '조제중', variant: 'subtle', color: 'teal' },
 ]
 </script>
 
@@ -37,12 +37,12 @@ const emrExamples = [
     <!-- Fill variant -->
     <h4 class="section-title">Fill Variant (강조형)</h4>
     <div class="badge-row">
-      <div v-for="c in colors" :key="'fill-'+c" class="badge-col">
+      <div v-for="c in colors" :key="'solid-'+c" class="badge-col">
         <span
           class="badge"
           :style="{
-            background: colorMap[c].fill.bg,
-            color: colorMap[c].fill.text,
+            background: colorMap[c].solid.bg,
+            color: colorMap[c].solid.text,
           }"
         >{{ c }}</span>
         <span class="badge-color-name">{{ c }}</span>
@@ -52,12 +52,12 @@ const emrExamples = [
     <!-- Weak variant -->
     <h4 class="section-title">Weak Variant (보조형)</h4>
     <div class="badge-row">
-      <div v-for="c in colors" :key="'weak-'+c" class="badge-col">
+      <div v-for="c in colors" :key="'subtle-'+c" class="badge-col">
         <span
           class="badge"
           :style="{
-            background: colorMap[c].weak.bg,
-            color: colorMap[c].weak.text,
+            background: colorMap[c].subtle.bg,
+            color: colorMap[c].subtle.text,
           }"
         >{{ c }}</span>
         <span class="badge-color-name">{{ c }}</span>

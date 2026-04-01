@@ -58,7 +58,7 @@ import { Button, Badge, Card } from '@cloud-emr/design-system';
 function Example() {
   return (
     <Card>
-      <Badge variant="fill" color="blue" size="small">진료중</Badge>
+      <Badge variant="solid" color="blue" size="small">진료중</Badge>
       <Button variant="primary" size="medium">
         처방 확인
       </Button>

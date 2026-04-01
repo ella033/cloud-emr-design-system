@@ -30,7 +30,7 @@ const columns = [
   { key: 'birthDate', title: '생년월일', width: 100 },
   { key: 'department', title: '진료과', width: 80 },
   { key: 'status', title: '상태', width: 80, align: 'center',
-    render: (val) => <Badge variant="fill" color={statusColor[val]}>{val}</Badge>
+    render: (val) => <Badge variant="solid" color={statusColor[val]}>{val}</Badge>
   },
   { key: 'time', title: '접수시간', width: 80, align: 'right', mono: true },
 ];
@@ -111,7 +111,7 @@ const labColumns = [
   },
   { key: 'range', title: '참고치', width: 120, mono: true },
   { key: 'status', title: '판정', width: 60,
-    render: (val) => <Badge variant="weak" color={val === '정상' ? 'green' : 'red'} size="xsmall">{val}</Badge>
+    render: (val) => <Badge variant="subtle" color={val === '정상' ? 'green' : 'red'} size="xsmall">{val}</Badge>
   },
 ];
 ```
