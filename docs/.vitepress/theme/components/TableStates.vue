@@ -682,11 +682,11 @@ function isSelected(id) { return selectedRows.value.includes(id) }
   border-radius: 4px; display: inline-block;
 }
 
-/* Core table — horizontal 1px lines, card-module radius (12px), filled */
+/* Core table — horizontal 1px lines, card-module radius (12px), filled, full-width */
 .emr-table {
   width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px;
   border: 1px solid var(--vp-c-divider); border-radius: 12px; overflow: hidden;
-  background: var(--vp-c-bg);
+  background: var(--vp-c-bg); table-layout: fixed;
 }
 .emr-table th {
   padding: 10px 12px; text-align: left; font-weight: 600; font-size: 12px;
