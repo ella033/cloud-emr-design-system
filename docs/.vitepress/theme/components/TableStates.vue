@@ -4,6 +4,8 @@ const activeCase = ref('patient-list')
 
 const cases = [
   { key: 'patient-list', label: '환자 목록' },
+  { key: 'horizontal-scroll', label: '가로스크롤' },
+  { key: 'with-checkbox', label: '체크박스/아이콘' },
   { key: 'prescription', label: '처방 내역' },
   { key: 'lab-result', label: '검사 결과' },
   { key: 'vital', label: '바이탈 사인' },
@@ -14,6 +16,8 @@ const cases = [
   { key: 'schedule', label: '스케줄/예약' },
   { key: 'empty-states', label: '빈 상태/로딩/에러' },
 ]
+
+const checkedRows = ref([])
 
 const expandedRow = ref(null)
 const selectedRows = ref([])
@@ -43,7 +47,7 @@ function isSelected(id) { return selectedRows.value.includes(id) }
 
       <!-- 1. 환자 목록 -->
       <div v-if="activeCase === 'patient-list'" class="table-case">
-        <div class="case-tag">환자 목록 테이블 — 상태 뱃지, 행 선택, 정렬 헤더</div>
+        <div class="case-tag">환자 목록 테이블 — 상태 뱃지, 행 선택, 정렬 헤더, 전화번호/주소 포함</div>
         <table class="emr-table">
           <thead>
             <tr>
@@ -51,6 +55,8 @@ function isSelected(id) { return selectedRows.value.includes(id) }
               <th>생년월일</th>
               <th>성별</th>
               <th class="sortable">진료과 ↕</th>
+              <th>전화번호</th>
+              <th>주소</th>
               <th class="center">상태</th>
               <th class="right sortable">접수시간 ↕</th>
             </tr>
@@ -61,6 +67,8 @@ function isSelected(id) { return selectedRows.value.includes(id) }
               <td>1981.03.15</td>
               <td>남</td>
               <td>내과</td>
+              <td class="mono">010-1234-5678</td>
+              <td>서울시 강남구 역삼동</td>
               <td class="center"><span class="badge badge-blue">진료중</span></td>
               <td class="right mono">14:30</td>
             </tr>
@@ -69,6 +77,8 @@ function isSelected(id) { return selectedRows.value.includes(id) }
               <td>1975.08.22</td>
               <td>여</td>
               <td>내과</td>
+              <td class="mono">010-9876-5432</td>
+              <td>서울시 서초구 서초동</td>
               <td class="center"><span class="badge badge-yellow">대기</span></td>
               <td class="right mono">14:25</td>
             </tr>
@@ -77,6 +87,8 @@ function isSelected(id) { return selectedRows.value.includes(id) }
               <td>1990.11.03</td>
               <td>남</td>
               <td>외과</td>
+              <td class="mono">010-5555-1234</td>
+              <td>경기도 성남시 분당구</td>
               <td class="center"><span class="badge badge-red">응급</span></td>
               <td class="right mono">14:15</td>
             </tr>
@@ -85,6 +97,8 @@ function isSelected(id) { return selectedRows.value.includes(id) }
               <td>1988.05.17</td>
               <td>여</td>
               <td>내과</td>
+              <td class="mono">010-3333-7777</td>
+              <td>서울시 송파구 잠실동</td>
               <td class="center"><span class="badge badge-green">완료</span></td>
               <td class="right mono">13:50</td>
             </tr>
@@ -93,12 +107,159 @@ function isSelected(id) { return selectedRows.value.includes(id) }
               <td class="dim">1965.12.08</td>
               <td class="dim">여</td>
               <td class="dim">정형외과</td>
+              <td class="mono dim">010-7777-8888</td>
+              <td class="dim">인천시 남동구 구월동</td>
               <td class="center"><span class="badge badge-gray">취소</span></td>
               <td class="right mono dim">13:30</td>
             </tr>
           </tbody>
         </table>
         <div class="table-footer-info">총 5명 · 대기 1 · 진료중 1 · 완료 1 · 응급 1 · 취소 1</div>
+      </div>
+
+      <!-- 1-1. 가로스크롤 케이스 -->
+      <div v-if="activeCase === 'horizontal-scroll'" class="table-case">
+        <div class="case-tag">가로스크롤 테이블 — 컬럼이 많아 영역을 초과할 때 가로 스크롤 발생</div>
+        <div class="table-scroll-wrap">
+          <table class="emr-table wide-table">
+            <thead>
+              <tr>
+                <th class="sticky-col">환자명</th>
+                <th>생년월일</th>
+                <th>성별</th>
+                <th>진료과</th>
+                <th>전화번호</th>
+                <th>주소</th>
+                <th>보험유형</th>
+                <th>혈액형</th>
+                <th>알러지</th>
+                <th>담당의</th>
+                <th class="center">상태</th>
+                <th class="right">접수시간</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cell-name sticky-col">홍길동</td>
+                <td>1981.03.15</td>
+                <td>남</td>
+                <td>내과</td>
+                <td class="mono">010-1234-5678</td>
+                <td>서울시 강남구 역삼동 123-45</td>
+                <td>건강보험</td>
+                <td>A+</td>
+                <td><span class="badge badge-red">페니실린</span></td>
+                <td>오윤경</td>
+                <td class="center"><span class="badge badge-blue">진료중</span></td>
+                <td class="right mono">14:30</td>
+              </tr>
+              <tr>
+                <td class="cell-name sticky-col">김영희</td>
+                <td>1975.08.22</td>
+                <td>여</td>
+                <td>내과</td>
+                <td class="mono">010-9876-5432</td>
+                <td>서울시 서초구 서초동 456-78</td>
+                <td>건강보험</td>
+                <td>B+</td>
+                <td class="dim">없음</td>
+                <td>오윤경</td>
+                <td class="center"><span class="badge badge-yellow">대기</span></td>
+                <td class="right mono">14:25</td>
+              </tr>
+              <tr>
+                <td class="cell-name sticky-col">이철수</td>
+                <td>1990.11.03</td>
+                <td>남</td>
+                <td>외과</td>
+                <td class="mono">010-5555-1234</td>
+                <td>경기도 성남시 분당구 정자동 101</td>
+                <td>건강보험</td>
+                <td>O-</td>
+                <td><span class="badge badge-yellow">아스피린</span></td>
+                <td>김외과</td>
+                <td class="center"><span class="badge badge-red">응급</span></td>
+                <td class="right mono">14:15</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="scroll-hint">← 좌우로 스크롤하여 더 많은 컬럼을 확인할 수 있습니다 →</div>
+        <div class="table-footer-info">환자명 컬럼은 좌측 고정(sticky)되어 스크롤 시에도 항상 표시됩니다</div>
+      </div>
+
+      <!-- 1-2. 체크박스/아이콘 케이스 -->
+      <div v-if="activeCase === 'with-checkbox'" class="table-case">
+        <div class="case-tag">체크박스 & 아이콘 컨트롤 — 다중 선택, 행 액션 아이콘</div>
+        <div class="table-toolbar">
+          <span class="toolbar-selected" v-if="checkedRows.length">{{ checkedRows.length }}명 선택됨</span>
+          <span class="toolbar-btn" v-if="checkedRows.length">📨 일괄 문자 발송</span>
+          <span class="toolbar-btn delete-btn" v-if="checkedRows.length">🗑 선택 삭제</span>
+          <span class="toolbar-btn" style="margin-left:auto;">+ 환자 등록</span>
+        </div>
+        <table class="emr-table">
+          <thead>
+            <tr>
+              <th class="col-check center"><input type="checkbox" /></th>
+              <th>환자명</th>
+              <th>생년월일</th>
+              <th>진료과</th>
+              <th class="center">상태</th>
+              <th class="center col-actions">액션</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr :class="{ 'row-selected': checkedRows.includes('p1') }">
+              <td class="center col-check"><input type="checkbox" v-model="checkedRows" value="p1" /></td>
+              <td class="cell-name">홍길동</td>
+              <td>1981.03.15</td>
+              <td>내과</td>
+              <td class="center"><span class="badge badge-blue">진료중</span></td>
+              <td class="center col-actions">
+                <span class="action-icon" title="차트 열기">📋</span>
+                <span class="action-icon" title="메모">💬</span>
+                <span class="action-icon" title="더보기">⋯</span>
+              </td>
+            </tr>
+            <tr :class="{ 'row-selected': checkedRows.includes('p2') }">
+              <td class="center col-check"><input type="checkbox" v-model="checkedRows" value="p2" /></td>
+              <td class="cell-name">김영희</td>
+              <td>1975.08.22</td>
+              <td>내과</td>
+              <td class="center"><span class="badge badge-yellow">대기</span></td>
+              <td class="center col-actions">
+                <span class="action-icon" title="차트 열기">📋</span>
+                <span class="action-icon" title="메모">💬</span>
+                <span class="action-icon" title="더보기">⋯</span>
+              </td>
+            </tr>
+            <tr :class="{ 'row-selected': checkedRows.includes('p3') }">
+              <td class="center col-check"><input type="checkbox" v-model="checkedRows" value="p3" /></td>
+              <td class="cell-name">이철수</td>
+              <td>1990.11.03</td>
+              <td>외과</td>
+              <td class="center"><span class="badge badge-red">응급</span></td>
+              <td class="center col-actions">
+                <span class="action-icon" title="차트 열기">📋</span>
+                <span class="action-icon" title="메모">💬</span>
+                <span class="action-icon" title="더보기">⋯</span>
+              </td>
+            </tr>
+            <tr :class="{ 'row-selected': checkedRows.includes('p4') }">
+              <td class="center col-check"><input type="checkbox" v-model="checkedRows" value="p4" /></td>
+              <td class="cell-name">박지수</td>
+              <td>1988.05.17</td>
+              <td>내과</td>
+              <td class="center"><span class="badge badge-green">완료</span></td>
+              <td class="center col-actions">
+                <span class="action-icon" title="차트 열기">📋</span>
+                <span class="action-icon" title="메모">💬</span>
+                <span class="action-icon" title="더보기">⋯</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-footer-info">체크박스로 다중 선택 · 우측 아이콘으로 행별 액션 · 상단 툴바에 일괄 작업</div>
       </div>
 
       <!-- 2. 처방 내역 -->
@@ -681,9 +842,9 @@ function isSelected(id) { return selectedRows.value.includes(id) }
   border-radius: 4px; display: inline-block;
 }
 
-/* Core table — horizontal 1px lines ONLY, 620px fixed, card radius */
+/* Core table — horizontal 1px lines ONLY, 100% width, card radius */
 .emr-table {
-  width: 620px; border-collapse: collapse; font-size: 13px;
+  width: 100%; border-collapse: collapse; font-size: 13px;
   border-radius: 12px; overflow: hidden;
   background: var(--vp-c-bg);
   border: none;
@@ -703,6 +864,38 @@ function isSelected(id) { return selectedRows.value.includes(id) }
 .emr-table tbody tr:last-child td { border-bottom: none; }
 .emr-table tbody tr:hover td { background: var(--vp-c-bg-soft); }
 .emr-table.compact td { padding: 7px 12px; }
+
+/* Horizontal scroll wrapper */
+.table-scroll-wrap {
+  overflow-x: auto; border-radius: 12px;
+  outline: 1px solid var(--vp-c-divider); outline-offset: -1px;
+}
+.table-scroll-wrap .emr-table {
+  min-width: 900px; outline: none; border-radius: 0;
+}
+.wide-table th, .wide-table td { white-space: nowrap; }
+
+/* Sticky first column */
+.sticky-col {
+  position: sticky; left: 0; z-index: 2;
+  background: var(--vp-c-bg-soft) !important;
+  box-shadow: 2px 0 4px rgba(0,0,0,0.06);
+}
+thead .sticky-col { background: var(--vp-c-bg-soft) !important; z-index: 3; }
+
+.scroll-hint {
+  text-align: center; font-size: 11px; color: var(--vp-c-text-3);
+  padding: 6px 0; font-style: italic;
+}
+
+/* Checkbox / action columns */
+.col-check { width: 40px; }
+.col-actions { width: 90px; }
+.action-icon {
+  cursor: pointer; font-size: 14px; padding: 2px 4px;
+  border-radius: 4px; transition: background 0.1s;
+}
+.action-icon:hover { background: var(--vp-c-bg-alt); }
 
 /* Alignment */
 .center { text-align: center !important; }
