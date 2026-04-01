@@ -671,8 +671,7 @@ function isSelected(id) { return selectedRows.value.includes(id) }
 
 /* Stage */
 .table-stage {
-  border: 1px solid var(--vp-c-divider); border-radius: 12px; overflow: hidden;
-  background: var(--vp-c-bg); padding: 16px;
+  padding: 16px 0;
 }
 
 .table-case { position: relative; }
@@ -682,19 +681,22 @@ function isSelected(id) { return selectedRows.value.includes(id) }
   border-radius: 4px; display: inline-block;
 }
 
-/* Core table — horizontal 1px lines, card-module radius (12px), filled, full-width */
+/* Core table — horizontal 1px lines ONLY, 620px fixed, card radius */
 .emr-table {
-  width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px;
-  border: 1px solid var(--vp-c-divider); border-radius: 12px; overflow: hidden;
-  background: var(--vp-c-bg); table-layout: fixed;
+  width: 620px; border-collapse: collapse; font-size: 13px;
+  border-radius: 12px; overflow: hidden;
+  background: var(--vp-c-bg);
+  border: none;
+  outline: 1px solid var(--vp-c-divider);
+  outline-offset: -1px;
 }
 .emr-table th {
   padding: 10px 12px; text-align: left; font-weight: 600; font-size: 12px;
-  color: var(--vp-c-text-2); border-bottom: 1px solid var(--vp-c-divider);
+  color: var(--vp-c-text-2); border: none; border-bottom: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg-soft); white-space: nowrap;
 }
 .emr-table td {
-  padding: 10px 12px; border-bottom: 1px solid var(--vp-c-divider);
+  padding: 10px 12px; border: none; border-bottom: 1px solid var(--vp-c-divider);
   color: var(--vp-c-text-2); vertical-align: middle;
   background: var(--vp-c-bg);
 }
@@ -819,7 +821,7 @@ function isSelected(id) { return selectedRows.value.includes(id) }
   border-top: 1px solid var(--vp-c-divider);
 }
 .emr-table tfoot td {
-  padding: 10px 12px; border-top: 1px solid var(--vp-c-divider); border-bottom: none;
+  padding: 10px 12px; border: none; border-top: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg-soft);
 }
 .total-row { background: var(--vp-c-bg-soft); }
