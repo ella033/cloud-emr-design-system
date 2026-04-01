@@ -682,20 +682,21 @@ function isSelected(id) { return selectedRows.value.includes(id) }
   border-radius: 4px; display: inline-block;
 }
 
-/* Core table — horizontal lines only */
+/* Core table — horizontal lines only, card-module radius (12px) */
 .emr-table {
-  width: 100%; border-collapse: collapse; font-size: 13px;
+  width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px;
+  border: 1px solid var(--vp-c-divider); border-radius: 12px; overflow: hidden;
 }
 .emr-table th {
   padding: 10px 12px; text-align: left; font-weight: 600; font-size: 12px;
   color: var(--vp-c-text-2); border-bottom: 2px solid var(--vp-c-divider);
-  background: transparent; white-space: nowrap;
+  background: var(--vp-c-bg-soft); white-space: nowrap;
 }
 .emr-table td {
   padding: 10px 12px; border-bottom: 1px solid var(--vp-c-divider);
   color: var(--vp-c-text-2); vertical-align: middle;
 }
-.emr-table tbody tr:last-child td { border-bottom: 1px solid var(--vp-c-divider); }
+.emr-table tbody tr:last-child td { border-bottom: none; }
 .emr-table tbody tr:hover { background: var(--vp-c-bg-soft); }
 .emr-table.compact td { padding: 7px 12px; }
 
@@ -817,6 +818,7 @@ function isSelected(id) { return selectedRows.value.includes(id) }
 }
 .emr-table tfoot td {
   padding: 10px 12px; border-top: 2px solid var(--vp-c-divider); border-bottom: none;
+  background: var(--vp-c-bg-soft);
 }
 .total-row { background: var(--vp-c-bg-soft); }
 .foot-label { font-weight: 600; color: var(--vp-c-text-3); font-size: 12px; }
