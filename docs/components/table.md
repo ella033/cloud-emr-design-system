@@ -4,44 +4,19 @@
 
 <span class="status-badge stable">Stable</span>
 
-## Preview
+## 상태별 케이스
 
-<div class="component-preview" style="overflow-x: auto;">
-  <table style="width:100%; border-collapse:collapse; font-size:13px;">
-    <thead>
-      <tr style="background:#F8FAFC; border-bottom:2px solid #E2E8F0;">
-        <th style="padding:10px 12px; text-align:left; font-weight:600; color:#334155;">환자명</th>
-        <th style="padding:10px 12px; text-align:left; font-weight:600; color:#334155;">생년월일</th>
-        <th style="padding:10px 12px; text-align:left; font-weight:600; color:#334155;">진료과</th>
-        <th style="padding:10px 12px; text-align:center; font-weight:600; color:#334155;">상태</th>
-        <th style="padding:10px 12px; text-align:right; font-weight:600; color:#334155;">접수시간</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom:1px solid #E2E8F0;">
-        <td style="padding:10px 12px; color:#0F172A; font-weight:500;">홍길동</td>
-        <td style="padding:10px 12px; color:#64748B;">1981.03.15</td>
-        <td style="padding:10px 12px; color:#64748B;">내과</td>
-        <td style="padding:10px 12px; text-align:center;"><span style="padding:2px 8px; border-radius:9999px; font-size:11px; font-weight:500; background:#DBEAFE; color:#1D4ED8;">진료중</span></td>
-        <td style="padding:10px 12px; text-align:right; color:#64748B; font-family:monospace;">14:30</td>
-      </tr>
-      <tr style="border-bottom:1px solid #E2E8F0; background:#F8FAFC;">
-        <td style="padding:10px 12px; color:#0F172A; font-weight:500;">김영희</td>
-        <td style="padding:10px 12px; color:#64748B;">1975.08.22</td>
-        <td style="padding:10px 12px; color:#64748B;">내과</td>
-        <td style="padding:10px 12px; text-align:center;"><span style="padding:2px 8px; border-radius:9999px; font-size:11px; font-weight:500; background:#FEF9C3; color:#A16207;">대기</span></td>
-        <td style="padding:10px 12px; text-align:right; color:#64748B; font-family:monospace;">14:25</td>
-      </tr>
-      <tr style="border-bottom:1px solid #E2E8F0;">
-        <td style="padding:10px 12px; color:#0F172A; font-weight:500;">이철수</td>
-        <td style="padding:10px 12px; color:#64748B;">1990.11.03</td>
-        <td style="padding:10px 12px; color:#64748B;">외과</td>
-        <td style="padding:10px 12px; text-align:center;"><span style="padding:2px 8px; border-radius:9999px; font-size:11px; font-weight:500; background:#FEF2F2; color:#DC2626;">응급</span></td>
-        <td style="padding:10px 12px; text-align:right; color:#64748B; font-family:monospace;">14:15</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+EMR에서 사용되는 10가지 테이블 패턴을 확인할 수 있습니다. 칩을 클릭하여 케이스를 전환해보세요.
+
+<TableStates />
+
+### 디자인 원칙
+
+- **가로 라인만 사용** — 세로 라인 없이 깔끔한 구조
+- **수치 데이터** — 모노스페이스 + 우측 정렬 + tabular-nums
+- **상태 표현** — 시맨틱 컬러 뱃지 (blue=진행, green=완료, red=위험, yellow=대기)
+- **이상치 강조** — 행 배경 하이라이트 + 수치 색상 변경
+- **인터랙션** — 행 hover, 선택, 확장(accordion), 인라인 편집
 
 ---
 

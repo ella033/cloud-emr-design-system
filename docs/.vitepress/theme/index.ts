@@ -12,6 +12,7 @@ import BadgeStates from './components/BadgeStates.vue'
 import TabStates from './components/TabStates.vue'
 import ToastStates from './components/ToastStates.vue'
 import ModalStates from './components/ModalStates.vue'
+import TableStates from './components/TableStates.vue'
 
 export default {
   extends: DefaultTheme,
@@ -28,5 +29,6 @@ export default {
     app.component('TabStates', TabStates)
     app.component('ToastStates', ToastStates)
     app.component('ModalStates', ModalStates)
+    app.component('TableStates', TableStates)
   }
 }
