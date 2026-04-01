@@ -4,20 +4,24 @@
 
 <span class="status-badge stable">Stable</span>
 
-## Preview
+## 상태별 케이스
 
-<div class="component-preview" style="display: flex; justify-content: center;">
-  <div style="width:400px; background:white; border-radius:16px; box-shadow:0 20px 25px -5px rgba(0,0,0,0.1); overflow:hidden; border:1px solid #E2E8F0;">
-    <div style="padding:24px 24px 16px;">
-      <div style="font-size:18px; font-weight:600; color:#0F172A; margin-bottom:8px;">처방을 전송하시겠습니까?</div>
-      <div style="font-size:14px; color:#64748B; line-height:1.5;">홍길동 환자에게 아래 처방을 전송합니다.<br/>타이레놀 500mg 외 2건</div>
-    </div>
-    <div style="display:flex; gap:8px; padding:16px 24px 24px; justify-content:flex-end;">
-      <button style="padding:10px 20px; border-radius:8px; font-size:14px; font-weight:500; background:transparent; color:#64748B; border:1px solid #E2E8F0; cursor:pointer;">취소</button>
-      <button style="padding:10px 20px; border-radius:8px; font-size:14px; font-weight:600; background:#3B82F6; color:#fff; border:none; cursor:pointer;">전송</button>
-    </div>
-  </div>
-</div>
+EMR에서 발생하는 다양한 모달 케이스를 확인할 수 있습니다. 상단 칩을 클릭하여 케이스를 전환해보세요.
+
+<ModalStates />
+
+### 케이스 요약
+
+| 케이스 | 타입 | 용도 |
+|--------|------|------|
+| **처방 확인** | ConfirmDialog | 처방 전송 전 최종 확인 |
+| **알러지 경고** | AlertDialog / danger | 알러지 약물 처방 시 경고 |
+| **에러 안내** | AlertDialog / error | 서버 오류, 연결 실패 등 |
+| **금지 처방** | AlertDialog / forbidden | DUR 금기, 연령 금기 약물 |
+| **테이블** | Modal / table | 검사 결과 상세 조회 |
+| **안내 문구** | Modal / info | 건강검진 결과, 공지사항 등 |
+| **삭제 확인** | ConfirmDialog / danger | 되돌릴 수 없는 삭제 동작 |
+| **폼 입력** | Modal / form | 묶음처방 저장, 설정 편집 등 |
 
 ---
 
