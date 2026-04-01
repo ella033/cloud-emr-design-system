@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ceds-docs",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd '/Users/ohyunkyung/Desktop/20260401 클라우드 EMR' && npx vitepress dev docs --port 5173"],
+      "port": 5173
+    }
+  ]
+}
