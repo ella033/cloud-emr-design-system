@@ -6,6 +6,11 @@ import SpacingScale from './components/SpacingScale.vue'
 import RadiusPreview from './components/RadiusPreview.vue'
 import ShadowPreview from './components/ShadowPreview.vue'
 import LayoutDiagram from './components/LayoutDiagram.vue'
+import InputStates from './components/InputStates.vue'
+import ButtonStates from './components/ButtonStates.vue'
+import BadgeStates from './components/BadgeStates.vue'
+import TabStates from './components/TabStates.vue'
+import ToastStates from './components/ToastStates.vue'
 
 export default {
   extends: DefaultTheme,
@@ -16,5 +21,10 @@ export default {
     app.component('RadiusPreview', RadiusPreview)
     app.component('ShadowPreview', ShadowPreview)
     app.component('LayoutDiagram', LayoutDiagram)
+    app.component('InputStates', InputStates)
+    app.component('ButtonStates', ButtonStates)
+    app.component('BadgeStates', BadgeStates)
+    app.component('TabStates', TabStates)
+    app.component('ToastStates', ToastStates)
   }
 }

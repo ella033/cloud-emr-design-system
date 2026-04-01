@@ -4,16 +4,11 @@
 
 <span class="status-badge stable">Stable</span>
 
-## Preview
+## 상태별 케이스
 
-<div class="component-preview">
-  <div style="border-bottom:2px solid #E2E8F0; display:flex; gap:0;">
-    <div style="padding:10px 20px; font-size:14px; font-weight:600; color:#3B82F6; border-bottom:2px solid #3B82F6; margin-bottom:-2px; cursor:pointer;">전체</div>
-    <div style="padding:10px 20px; font-size:14px; font-weight:400; color:#94A3B8; cursor:pointer;">대기</div>
-    <div style="padding:10px 20px; font-size:14px; font-weight:400; color:#94A3B8; cursor:pointer;">진료중</div>
-    <div style="padding:10px 20px; font-size:14px; font-weight:400; color:#94A3B8; cursor:pointer;">완료</div>
-  </div>
-</div>
+3가지 Variant를 인터랙티브하게 확인할 수 있습니다. 탭을 클릭해보세요.
+
+<TabStates />
 
 ---
 

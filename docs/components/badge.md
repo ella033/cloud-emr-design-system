@@ -4,16 +4,11 @@
 
 <span class="status-badge stable">Stable</span>
 
-## Preview
+## 상태별 케이스
 
-<div class="component-preview" style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-  <span style="display:inline-block; padding:2px 8px; border-radius:9999px; font-size:12px; font-weight:500; background:#DBEAFE; color:#1D4ED8;">진료중</span>
-  <span style="display:inline-block; padding:2px 8px; border-radius:9999px; font-size:12px; font-weight:500; background:#DCFCE7; color:#15803D;">완료</span>
-  <span style="display:inline-block; padding:2px 8px; border-radius:9999px; font-size:12px; font-weight:500; background:#FEF2F2; color:#DC2626;">응급</span>
-  <span style="display:inline-block; padding:2px 8px; border-radius:9999px; font-size:12px; font-weight:500; background:#FEF9C3; color:#A16207;">대기</span>
-  <span style="display:inline-block; padding:4px 10px; border-radius:9999px; font-size:14px; font-weight:500; background:#3B82F6; color:#fff;">Primary</span>
-  <span style="display:inline-block; padding:4px 10px; border-radius:9999px; font-size:14px; font-weight:500; background:#EFF6FF; color:#2563EB;">Subtle</span>
-</div>
+Variant, Color, Size 모든 조합과 EMR 활용 예시를 확인할 수 있습니다.
+
+<BadgeStates />
 
 ---
 

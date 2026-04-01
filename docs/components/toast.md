@@ -4,19 +4,11 @@
 
 <span class="status-badge stable">Stable</span>
 
-## Preview
+## 상태별 케이스
 
-<div class="component-preview" style="display:flex; flex-direction:column; gap:12px; max-width:360px;">
-  <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; border-radius:8px; background:#0F172A; color:#F8FAFC; font-size:14px; box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);">
-    <span>✓</span> 처방이 전송되었습니다
-  </div>
-  <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; border-radius:8px; background:#FEF2F2; color:#DC2626; font-size:14px; border:1px solid #FECACA;">
-    <span>✕</span> 처방 전송에 실패했습니다
-  </div>
-  <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; border-radius:8px; background:#FEF9C3; color:#A16207; font-size:14px; border:1px solid #FEF08A;">
-    <span>⚠</span> 알러지 약물이 포함되어 있습니다
-  </div>
-</div>
+Type별 스타일, 액션 버튼, 표시 위치를 확인할 수 있습니다.
+
+<ToastStates />
 
 ---
 

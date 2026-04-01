@@ -4,14 +4,11 @@
 
 <span class="status-badge stable">Stable</span>
 
-## Preview
+## 상태별 케이스
 
-<div class="component-preview" style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-  <button style="padding:10px 20px; border-radius:8px; font-size:14px; font-weight:600; background:#3B82F6; color:#fff; border:none; cursor:pointer;">처방 전송</button>
-  <button style="padding:10px 20px; border-radius:8px; font-size:14px; font-weight:600; background:#EFF6FF; color:#2563EB; border:1px solid #BFDBFE; cursor:pointer;">저장</button>
-  <button style="padding:10px 20px; border-radius:8px; font-size:14px; font-weight:600; background:transparent; color:#64748B; border:1px solid #E2E8F0; cursor:pointer;">취소</button>
-  <button style="padding:10px 20px; border-radius:8px; font-size:14px; font-weight:600; background:#DC2626; color:#fff; border:none; cursor:pointer;">삭제</button>
-</div>
+Variant, State, Size를 모두 한눈에 확인할 수 있습니다.
+
+<ButtonStates />
 
 ---
 

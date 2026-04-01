@@ -4,23 +4,11 @@
 
 <span class="status-badge stable">Stable</span>
 
-## Preview
+## 상태별 케이스
 
-<div class="component-preview" style="display: flex; flex-direction: column; gap: 16px; max-width: 400px;">
-  <div>
-    <label style="display:block; font-size:13px; font-weight:500; color:#475569; margin-bottom:6px;">환자명</label>
-    <input type="text" value="홍길동" style="width:100%; padding:10px 12px; border:1px solid #E2E8F0; border-radius:8px; font-size:14px; outline:none; background:white; color:#0F172A;" readonly />
-  </div>
-  <div>
-    <label style="display:block; font-size:13px; font-weight:500; color:#475569; margin-bottom:6px;">진단 코드 검색</label>
-    <input type="text" placeholder="KCD 코드 또는 질환명 입력" style="width:100%; padding:10px 12px; border:1px solid #E2E8F0; border-radius:8px; font-size:14px; outline:none; background:white; color:#0F172A;" readonly />
-  </div>
-  <div>
-    <label style="display:block; font-size:13px; font-weight:500; color:#DC2626; margin-bottom:6px;">연락처 *</label>
-    <input type="text" value="010-1234" style="width:100%; padding:10px 12px; border:1px solid #EF4444; border-radius:8px; font-size:14px; outline:none; background:white; color:#0F172A;" readonly />
-    <span style="font-size:12px; color:#DC2626; margin-top:4px; display:block;">올바른 전화번호 형식이 아닙니다</span>
-  </div>
-</div>
+모든 인터랙션 상태를 한눈에 확인할 수 있습니다.
+
+<InputStates />
 
 ---
 
