@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: '의사랑',
-  description: '의사랑 AI Design System',
+  title: '의사랑AI',
+  description: '의사랑AI Design System',
   lang: 'ko-KR',
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
@@ -11,7 +11,7 @@ export default defineConfig({
   ],
   themeConfig: {
     logo: '/logo.svg',
-    siteTitle: '의사랑',
+    siteTitle: '의사랑AI',
     nav: [
       { text: 'Guide', link: '/introduction' },
       { text: 'Foundation', link: '/foundation/colors' },
@@ -77,7 +77,7 @@ export default defineConfig({
       },
     },
     footer: {
-      message: '의사랑 AI Design System',
+      message: '의사랑AI Design System',
       copyright: 'Internal Use Only',
     },
     outline: {

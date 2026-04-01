@@ -1,77 +1,76 @@
+<script setup>
+const spacingItems = [
+  { token: '--dr-ai-spacing-0', value: '0px', usage: '없음' },
+  { token: '--dr-ai-spacing-2', value: '2px', usage: '미세 간격 (아이콘-텍스트 보정)' },
+  { token: '--dr-ai-spacing-4', value: '4px', usage: '최소 간격 (인라인 요소)' },
+  { token: '--dr-ai-spacing-6', value: '6px', usage: '압축 간격' },
+  { token: '--dr-ai-spacing-8', value: '8px', usage: '컴팩트 간격 (카드 내부)' },
+  { token: '--dr-ai-spacing-12', value: '12px', usage: '기본 요소 간격' },
+  { token: '--dr-ai-spacing-16', value: '16px', usage: '기본 패딩' },
+  { token: '--dr-ai-spacing-20', value: '20px', usage: '섹션 내 간격' },
+  { token: '--dr-ai-spacing-24', value: '24px', usage: '카드 패딩' },
+  { token: '--dr-ai-spacing-32', value: '32px', usage: '섹션 간 간격' },
+  { token: '--dr-ai-spacing-40', value: '40px', usage: '큰 섹션 간격' },
+  { token: '--dr-ai-spacing-48', value: '48px', usage: '페이지 여백' },
+  { token: '--dr-ai-spacing-64', value: '64px', usage: '최대 간격' },
+]
+
+const radiusItems = [
+  { token: 'radius-none', value: '0px', usage: '직각' },
+  { token: 'radius-sm', value: '4px', usage: '뱃지, 태그' },
+  { token: 'radius-md', value: '8px', usage: '버튼, 입력 필드' },
+  { token: 'radius-lg', value: '12px', usage: '카드 모듈' },
+  { token: 'radius-xl', value: '16px', usage: '모달, 바텀시트' },
+  { token: 'radius-full', value: '9999px', usage: '아바타, 칩' },
+]
+
+const shadowItems = [
+  { token: 'shadow-sm', value: '0 1px 2px rgba(0,0,0,0.05)', usage: '카드 기본' },
+  { token: 'shadow-md', value: '0 4px 6px -1px rgba(0,0,0,0.1)', usage: '카드 호버, 드롭다운' },
+  { token: 'shadow-lg', value: '0 10px 15px -3px rgba(0,0,0,0.1)', usage: '모달, 플로팅' },
+  { token: 'shadow-xl', value: '0 20px 25px -5px rgba(0,0,0,0.1)', usage: '최상위 오버레이' },
+]
+</script>
+
 # 스페이싱 & 레이아웃
 
-의사랑 스페이싱 시스템은 **4px 기반 그리드**를 사용하며, EMR의 고밀도 정보 레이아웃에 최적화되어 있습니다.
+의사랑AI스페이싱 시스템은 **4px 기반 그리드**를 사용하며, EMR의 고밀도 정보 레이아웃에 최적화되어 있습니다.
+
+::: tip 토큰 복사
+스페이싱 바와 Radius 카드를 클릭하면 값이 클립보드에 복사됩니다.
+:::
 
 ---
 
 ## Spacing Scale
 
-모든 간격은 4px의 배수로 구성됩니다.
+모든 간격은 4px의 배수로 구성됩니다. 파란 바의 너비가 실제 간격 크기입니다.
 
-| Token | Value | 용도 |
-|-------|-------|------|
-| `--dr-ai-spacing-0` | 0px | 없음 |
-| `--dr-ai-spacing-2` | 2px | 미세 간격 (아이콘-텍스트 보정) |
-| `--dr-ai-spacing-4` | 4px | 최소 간격 (인라인 요소) |
-| `--dr-ai-spacing-6` | 6px | 압축 간격 |
-| `--dr-ai-spacing-8` | 8px | 컴팩트 간격 (카드 내부 요소) |
-| `--dr-ai-spacing-12` | 12px | 기본 요소 간격 |
-| `--dr-ai-spacing-16` | 16px | **기본 패딩** |
-| `--dr-ai-spacing-20` | 20px | 섹션 내 간격 |
-| `--dr-ai-spacing-24` | 24px | 카드 패딩 |
-| `--dr-ai-spacing-32` | 32px | 섹션 간 간격 |
-| `--dr-ai-spacing-40` | 40px | 큰 섹션 간격 |
-| `--dr-ai-spacing-48` | 48px | 페이지 여백 |
-| `--dr-ai-spacing-64` | 64px | 최대 간격 |
+<SpacingScale :items="spacingItems" />
 
 ---
 
 ## Border Radius
 
-| Token | Value | 용도 |
-|-------|-------|------|
-| `--dr-ai-radius-none` | 0px | 직각 |
-| `--dr-ai-radius-sm` | 4px | 작은 요소 (뱃지, 태그) |
-| `--dr-ai-radius-md` | 8px | **기본** (버튼, 입력 필드) |
-| `--dr-ai-radius-lg` | 12px | 카드 모듈 |
-| `--dr-ai-radius-xl` | 16px | 모달, 바텀시트 |
-| `--dr-ai-radius-full` | 9999px | 원형 (아바타, 칩) |
+<RadiusPreview :items="radiusItems" />
 
 ---
 
 ## Shadow (Elevation)
 
-| Token | Value | 용도 |
-|-------|-------|------|
-| `--dr-ai-shadow-sm` | `0 1px 2px rgba(0,0,0,0.05)` | 카드 기본 |
-| `--dr-ai-shadow-md` | `0 4px 6px -1px rgba(0,0,0,0.1)` | 카드 호버, 드롭다운 |
-| `--dr-ai-shadow-lg` | `0 10px 15px -3px rgba(0,0,0,0.1)` | 모달, 플로팅 |
-| `--dr-ai-shadow-xl` | `0 20px 25px -5px rgba(0,0,0,0.1)` | 최상위 오버레이 |
-
 > Dark 모드에서는 shadow 대신 `border` + `bg-elevated`로 구분합니다.
+
+<ShadowPreview :items="shadowItems" />
 
 ---
 
 ## EMR 레이아웃 시스템
 
-### 메인 레이아웃 구조
+### 진료 화면 구조
 
-```
-┌─────────────────────────────────────────────────┐
-│  Top Navigation Bar (56px)                       │
-├──────────┬──────────────────────┬───────────────┤
-│          │                      │               │
-│ Sidebar  │   Main Content Area  │  Quick Panel  │
-│  (240px) │   (flexible)         │   (320px)     │
-│          │                      │               │
-│ - 환자목록│   카드 모듈 그리드     │ - 퀵오더      │
-│ - 검색   │   (드래그/리사이즈)    │ - 묶음처방    │
-│ - 필터   │                      │ - 즐겨찾기    │
-│          │                      │               │
-├──────────┴──────────────────────┴───────────────┤
-│  Status Bar (32px)                               │
-└─────────────────────────────────────────────────┘
-```
+아래는 실제 진료 화면의 레이아웃 구조를 시각화한 것입니다. 좌측 환자 목록 사이드바, 중앙 카드 모듈 그리드, 우측 퀵오더/묶음처방 패널로 구성됩니다.
+
+<LayoutDiagram />
 
 ### 레이아웃 토큰
 

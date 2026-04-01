@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "의사랑"
+  name: "의사랑AI"
   text: "AI Design System"
   tagline: 의료진을 위한 일관되고 효율적인 디자인 경험
   actions:

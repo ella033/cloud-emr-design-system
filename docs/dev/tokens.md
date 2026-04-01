@@ -1,6 +1,6 @@
 # 디자인 토큰 (CSS Variables)
 
-개발 시 사용할 의사랑 디자인 토큰의 CSS 변수 정의입니다.
+개발 시 사용할 의사랑AI디자인 토큰의 CSS 변수 정의입니다.
 `foundation/` 문서의 디자인 값을 코드에서 직접 사용할 수 있는 형태로 제공합니다.
 
 ---
@@ -9,7 +9,7 @@
 
 ```css
 /* ============================================
-   의사랑 (Cloud EMR Design System) - Design Tokens
+   의사랑AI(Cloud EMR Design System) - Design Tokens
    ============================================ */
 
 /* ─── Scale Colors (고정) ─── */
