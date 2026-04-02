@@ -268,13 +268,13 @@ function isSelected(id) { return selectedRows.value.includes(id) }
         <table class="emr-table">
           <thead>
             <tr>
-              <th style="width:200px;">약품명</th>
-              <th class="center" style="width:70px;">용량</th>
-              <th class="center" style="width:50px;">횟수</th>
-              <th class="center" style="width:50px;">일수</th>
-              <th class="center" style="width:60px;">경로</th>
-              <th class="center" style="width:70px;">총량</th>
-              <th style="width:40px;"></th>
+              <th>약품명</th>
+              <th class="center">용량</th>
+              <th class="center">횟수</th>
+              <th class="center">일수</th>
+              <th class="center">경로</th>
+              <th class="center">총량</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -331,11 +331,11 @@ function isSelected(id) { return selectedRows.value.includes(id) }
         <table class="emr-table">
           <thead>
             <tr>
-              <th style="width:160px;">검사 항목</th>
-              <th class="right" style="width:120px;">결과</th>
-              <th class="right" style="width:120px;">참고치</th>
-              <th class="center" style="width:50px;">판정</th>
-              <th class="center" style="width:60px;">이전</th>
+              <th>검사 항목</th>
+              <th class="right">결과</th>
+              <th class="right">참고치</th>
+              <th class="center">판정</th>
+              <th class="center">이전</th>
             </tr>
           </thead>
           <tbody>
@@ -397,12 +397,12 @@ function isSelected(id) { return selectedRows.value.includes(id) }
         <table class="emr-table compact">
           <thead>
             <tr>
-              <th style="width:100px;">항목</th>
+              <th>항목</th>
               <th class="center">13:00</th>
               <th class="center">14:00</th>
               <th class="center highlight-col">15:00 (현재)</th>
-              <th class="center" style="width:60px;">트렌드</th>
-              <th class="center" style="width:70px;">정상 범위</th>
+              <th class="center">트렌드</th>
+              <th class="center">정상 범위</th>
             </tr>
           </thead>
           <tbody>
@@ -464,11 +464,11 @@ function isSelected(id) { return selectedRows.value.includes(id) }
         <table class="emr-table">
           <thead>
             <tr>
-              <th style="width:30px;"></th>
-              <th style="width:110px;">내원일</th>
+              <th></th>
+              <th>내원일</th>
               <th>주 진단</th>
               <th>담당의</th>
-              <th style="width:60px;">진료과</th>
+              <th>진료과</th>
             </tr>
           </thead>
           <tbody>
@@ -540,11 +540,11 @@ function isSelected(id) { return selectedRows.value.includes(id) }
         <table class="emr-table">
           <thead>
             <tr>
-              <th class="center" style="width:60px;">위험도</th>
+              <th class="center">위험도</th>
               <th>알러지 약물</th>
               <th>반응 증상</th>
-              <th style="width:80px;">등록일</th>
-              <th style="width:70px;">보고자</th>
+              <th>등록일</th>
+              <th>보고자</th>
             </tr>
           </thead>
           <tbody>
@@ -585,10 +585,10 @@ function isSelected(id) { return selectedRows.value.includes(id) }
           <thead>
             <tr>
               <th>항목</th>
-              <th class="center" style="width:60px;">구분</th>
-              <th class="center" style="width:40px;">수량</th>
-              <th class="right" style="width:90px;">금액</th>
-              <th class="right" style="width:90px;">본인부담</th>
+              <th class="center">구분</th>
+              <th class="center">수량</th>
+              <th class="right">금액</th>
+              <th class="right">본인부담</th>
             </tr>
           </thead>
           <tbody>
@@ -650,14 +650,14 @@ function isSelected(id) { return selectedRows.value.includes(id) }
         <table class="emr-table">
           <thead>
             <tr>
-              <th style="width:36px;" class="center">
+              <th class="center">
                 <input type="checkbox" disabled />
               </th>
               <th>세트명</th>
               <th>포함 약물</th>
-              <th style="width:60px;">진료과</th>
-              <th style="width:60px;">공유</th>
-              <th style="width:80px;">수정일</th>
+              <th>진료과</th>
+              <th>공유</th>
+              <th>수정일</th>
             </tr>
           </thead>
           <tbody>
@@ -695,11 +695,11 @@ function isSelected(id) { return selectedRows.value.includes(id) }
         <table class="emr-table compact">
           <thead>
             <tr>
-              <th style="width:60px;">시간</th>
+              <th>시간</th>
               <th>환자명</th>
               <th>진료 유형</th>
-              <th class="center" style="width:80px;">상태</th>
-              <th style="width:100px;">메모</th>
+              <th class="center">상태</th>
+              <th>메모</th>
             </tr>
           </thead>
           <tbody>
@@ -844,7 +844,7 @@ function isSelected(id) { return selectedRows.value.includes(id) }
 
 /* Core table — horizontal 1px lines ONLY, 100% width, card radius */
 .emr-table {
-  width: 100%; border-collapse: collapse; font-size: 13px;
+  width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 13px;
   border-radius: 12px; overflow: hidden;
   background: var(--vp-c-bg);
   border: none;
