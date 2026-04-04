@@ -17,6 +17,7 @@ export default defineConfig({
       { text: 'Foundation', link: '/foundation/colors' },
       { text: 'Components', link: '/components/badge' },
       { text: 'Dev', link: '/dev/tokens' },
+      { text: 'Demo', link: '/demo' },
     ],
     sidebar: [
       {
