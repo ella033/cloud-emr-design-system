@@ -26,6 +26,7 @@ import MenuStates from './components/MenuStates.vue'
 import MedicationTimeline from './components/MedicationTimeline.vue'
 import VitalChart from './components/VitalChart.vue'
 import AdherenceHeatmap from './components/AdherenceHeatmap.vue'
+import ClinicalTimeline from './components/ClinicalTimeline.vue'
 
 export default {
   extends: DefaultTheme,
@@ -56,5 +57,6 @@ export default {
     app.component('MedicationTimeline', MedicationTimeline)
     app.component('VitalChart', VitalChart)
     app.component('AdherenceHeatmap', AdherenceHeatmap)
+    app.component('ClinicalTimeline', ClinicalTimeline)
   }
 }
