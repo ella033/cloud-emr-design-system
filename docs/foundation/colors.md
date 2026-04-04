@@ -65,61 +65,61 @@ const teal = [
 ]
 
 const bgTokens = [
-  { token: '--dr-ai-color-bg-page', lightHex: '#F8FAFC', darkHex: '#020617', usage: '페이지 전체 배경' },
-  { token: '--dr-ai-color-bg-card', lightHex: '#FFFFFF', darkHex: '#0F172A', usage: '카드/모듈 배경' },
-  { token: '--dr-ai-color-bg-card-hover', lightHex: '#F8FAFC', darkHex: '#1E293B', usage: '카드 호버' },
-  { token: '--dr-ai-color-bg-elevated', lightHex: '#FFFFFF', darkHex: '#1E293B', usage: '모달, 드롭다운' },
-  { token: '--dr-ai-color-bg-input', lightHex: '#FFFFFF', darkHex: '#1E293B', usage: '입력 필드 배경' },
-  { token: '--dr-ai-color-bg-sidebar', lightHex: '#FFFFFF', darkHex: '#0F172A', usage: '사이드바 배경' },
+  { token: '--color-bg-page', lightHex: '#F8FAFC', darkHex: '#020617', usage: '페이지 전체 배경' },
+  { token: '--color-bg-card', lightHex: '#FFFFFF', darkHex: '#0F172A', usage: '카드/모듈 배경' },
+  { token: '--color-bg-card-hover', lightHex: '#F8FAFC', darkHex: '#1E293B', usage: '카드 호버' },
+  { token: '--color-bg-elevated', lightHex: '#FFFFFF', darkHex: '#1E293B', usage: '모달, 드롭다운' },
+  { token: '--color-bg-input', lightHex: '#FFFFFF', darkHex: '#1E293B', usage: '입력 필드 배경' },
+  { token: '--color-bg-sidebar', lightHex: '#FFFFFF', darkHex: '#0F172A', usage: '사이드바 배경' },
 ]
 
 const textTokens = [
-  { token: '--dr-ai-color-text-primary', lightHex: '#0F172A', darkHex: '#F8FAFC', usage: '주요 텍스트' },
-  { token: '--dr-ai-color-text-secondary', lightHex: '#64748B', darkHex: '#94A3B8', usage: '보조 텍스트' },
-  { token: '--dr-ai-color-text-tertiary', lightHex: '#94A3B8', darkHex: '#64748B', usage: '3차 텍스트, 힌트' },
-  { token: '--dr-ai-color-text-disabled', lightHex: '#CBD5E1', darkHex: '#475569', usage: '비활성 텍스트' },
-  { token: '--dr-ai-color-text-link', lightHex: '#2563EB', darkHex: '#60A5FA', usage: '링크 텍스트' },
-  { token: '--dr-ai-color-text-error', lightHex: '#DC2626', darkHex: '#F87171', usage: '에러 텍스트' },
+  { token: '--color-text-primary', lightHex: '#0F172A', darkHex: '#F8FAFC', usage: '주요 텍스트' },
+  { token: '--color-text-secondary', lightHex: '#64748B', darkHex: '#94A3B8', usage: '보조 텍스트' },
+  { token: '--color-text-tertiary', lightHex: '#94A3B8', darkHex: '#64748B', usage: '3차 텍스트, 힌트' },
+  { token: '--color-text-disabled', lightHex: '#CBD5E1', darkHex: '#475569', usage: '비활성 텍스트' },
+  { token: '--color-text-link', lightHex: '#2563EB', darkHex: '#60A5FA', usage: '링크 텍스트' },
+  { token: '--color-text-error', lightHex: '#DC2626', darkHex: '#F87171', usage: '에러 텍스트' },
 ]
 
 const borderTokens = [
-  { token: '--dr-ai-color-border-default', lightHex: '#E2E8F0', darkHex: '#334155', usage: '기본 보더' },
-  { token: '--dr-ai-color-border-strong', lightHex: '#CBD5E1', darkHex: '#475569', usage: '강조 보더' },
-  { token: '--dr-ai-color-border-focus', lightHex: '#3B82F6', darkHex: '#60A5FA', usage: '포커스 링' },
-  { token: '--dr-ai-color-border-error', lightHex: '#EF4444', darkHex: '#F87171', usage: '에러 보더' },
+  { token: '--color-border-default', lightHex: '#E2E8F0', darkHex: '#334155', usage: '기본 보더' },
+  { token: '--color-border-strong', lightHex: '#CBD5E1', darkHex: '#475569', usage: '강조 보더' },
+  { token: '--color-border-focus', lightHex: '#3B82F6', darkHex: '#60A5FA', usage: '포커스 링' },
+  { token: '--color-border-error', lightHex: '#EF4444', darkHex: '#F87171', usage: '에러 보더' },
 ]
 
 const interactiveTokens = [
-  { token: '--dr-ai-color-primary', lightHex: '#3B82F6', darkHex: '#3B82F6', usage: 'Primary 버튼/액션' },
-  { token: '--dr-ai-color-primary-hover', lightHex: '#2563EB', darkHex: '#60A5FA', usage: 'Primary 호버' },
-  { token: '--dr-ai-color-primary-active', lightHex: '#1D4ED8', darkHex: '#93C5FD', usage: 'Primary 액티브' },
-  { token: '--dr-ai-color-primary-subtle', lightHex: '#EFF6FF', darkHex: '#172554', usage: 'Primary 연한 배경' },
+  { token: '--color-primary', lightHex: '#3B82F6', darkHex: '#3B82F6', usage: 'Primary 버튼/액션' },
+  { token: '--color-primary-hover', lightHex: '#2563EB', darkHex: '#60A5FA', usage: 'Primary 호버' },
+  { token: '--color-primary-active', lightHex: '#1D4ED8', darkHex: '#93C5FD', usage: 'Primary 액티브' },
+  { token: '--color-primary-subtle', lightHex: '#EFF6FF', darkHex: '#172554', usage: 'Primary 연한 배경' },
 ]
 
 const statusTokens = [
-  { token: '--dr-ai-color-success', lightHex: '#22C55E', darkHex: '#22C55E', usage: '정상, 완료' },
-  { token: '--dr-ai-color-success-subtle', lightHex: '#F0FDF4', darkHex: '#052E16', usage: '정상 배경' },
-  { token: '--dr-ai-color-warning', lightHex: '#EAB308', darkHex: '#EAB308', usage: '주의' },
-  { token: '--dr-ai-color-warning-subtle', lightHex: '#FEFCE8', darkHex: '#422006', usage: '주의 배경' },
-  { token: '--dr-ai-color-error', lightHex: '#EF4444', darkHex: '#EF4444', usage: '위험, 에러' },
-  { token: '--dr-ai-color-error-subtle', lightHex: '#FEF2F2', darkHex: '#450A0A', usage: '에러 배경' },
-  { token: '--dr-ai-color-info', lightHex: '#14B8A6', darkHex: '#14B8A6', usage: '정보' },
-  { token: '--dr-ai-color-info-subtle', lightHex: '#F0FDFA', darkHex: '#042F2E', usage: '정보 배경' },
+  { token: '--color-success', lightHex: '#22C55E', darkHex: '#22C55E', usage: '정상, 완료' },
+  { token: '--color-success-subtle', lightHex: '#F0FDF4', darkHex: '#052E16', usage: '정상 배경' },
+  { token: '--color-warning', lightHex: '#EAB308', darkHex: '#EAB308', usage: '주의' },
+  { token: '--color-warning-subtle', lightHex: '#FEFCE8', darkHex: '#422006', usage: '주의 배경' },
+  { token: '--color-error', lightHex: '#EF4444', darkHex: '#EF4444', usage: '위험, 에러' },
+  { token: '--color-error-subtle', lightHex: '#FEF2F2', darkHex: '#450A0A', usage: '에러 배경' },
+  { token: '--color-info', lightHex: '#14B8A6', darkHex: '#14B8A6', usage: '정보' },
+  { token: '--color-info-subtle', lightHex: '#F0FDFA', darkHex: '#042F2E', usage: '정보 배경' },
 ]
 
 const emrStatusTokens = [
-  { token: '--dr-ai-color-status-waiting', lightHex: '#EAB308', darkHex: '#FACC15', usage: '대기중' },
-  { token: '--dr-ai-color-status-in-progress', lightHex: '#3B82F6', darkHex: '#60A5FA', usage: '진료중' },
-  { token: '--dr-ai-color-status-completed', lightHex: '#22C55E', darkHex: '#4ADE80', usage: '진료완료' },
-  { token: '--dr-ai-color-status-emergency', lightHex: '#DC2626', darkHex: '#EF4444', usage: '응급' },
-  { token: '--dr-ai-color-status-cancelled', lightHex: '#94A3B8', darkHex: '#64748B', usage: '취소' },
+  { token: '--color-status-waiting', lightHex: '#EAB308', darkHex: '#FACC15', usage: '대기중' },
+  { token: '--color-status-in-progress', lightHex: '#3B82F6', darkHex: '#60A5FA', usage: '진료중' },
+  { token: '--color-status-completed', lightHex: '#22C55E', darkHex: '#4ADE80', usage: '진료완료' },
+  { token: '--color-status-emergency', lightHex: '#DC2626', darkHex: '#EF4444', usage: '응급' },
+  { token: '--color-status-cancelled', lightHex: '#94A3B8', darkHex: '#64748B', usage: '취소' },
 ]
 
 const emrRangeTokens = [
-  { token: '--dr-ai-color-range-normal', lightHex: '#16A34A', darkHex: '#4ADE80', usage: '정상 범위' },
-  { token: '--dr-ai-color-range-abnormal-low', lightHex: '#CA8A04', darkHex: '#FACC15', usage: '저수치 주의' },
-  { token: '--dr-ai-color-range-abnormal-high', lightHex: '#DC2626', darkHex: '#F87171', usage: '고수치 위험' },
-  { token: '--dr-ai-color-range-critical', lightHex: '#B91C1C', darkHex: '#EF4444', usage: '임계 위험' },
+  { token: '--color-range-normal', lightHex: '#16A34A', darkHex: '#4ADE80', usage: '정상 범위' },
+  { token: '--color-range-abnormal-low', lightHex: '#CA8A04', darkHex: '#FACC15', usage: '저수치 주의' },
+  { token: '--color-range-abnormal-high', lightHex: '#DC2626', darkHex: '#F87171', usage: '고수치 위험' },
+  { token: '--color-range-critical', lightHex: '#B91C1C', darkHex: '#EF4444', usage: '임계 위험' },
 ]
 </script>
 
@@ -239,17 +239,17 @@ Scale Colors (원색 팔레트)
 
 ```css
 :root[data-theme="light"] {
-  --dr-ai-color-bg-page: #F8FAFC;
-  --dr-ai-color-bg-card: #FFFFFF;
-  --dr-ai-color-text-primary: #0F172A;
-  --dr-ai-color-primary: #3B82F6;
+  --color-bg-page: #F8FAFC;
+  --color-bg-card: #FFFFFF;
+  --color-text-primary: #0F172A;
+  --color-primary: #3B82F6;
 }
 
 :root[data-theme="dark"] {
-  --dr-ai-color-bg-page: #020617;
-  --dr-ai-color-bg-card: #0F172A;
-  --dr-ai-color-text-primary: #F8FAFC;
-  --dr-ai-color-primary: #3B82F6;
+  --color-bg-page: #020617;
+  --color-bg-card: #0F172A;
+  --color-text-primary: #F8FAFC;
+  --color-primary: #3B82F6;
 }
 ```
 

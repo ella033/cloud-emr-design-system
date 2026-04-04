@@ -14,8 +14,8 @@
 | 코드/수치 | **JetBrains Mono** | 'Fira Code', 'SF Mono', Consolas, monospace |
 
 ```css
---dr-ai-font-family-base: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
---dr-ai-font-family-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+--font-family-base: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+--font-family-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
 ```
 
 > **Pretendard 선택 이유**: 한글/영문 혼합 환경에서 우수한 가독성, 다양한 웨이트 지원, 오픈소스
@@ -30,8 +30,8 @@
 
 | Token | Size | Line Height | Weight | 용도 |
 |-------|------|-------------|--------|------|
-| `--dr-ai-font-display1` | 32px | 40px (1.25) | Bold 700 | 메인 대시보드 제목 |
-| `--dr-ai-font-display2` | 28px | 36px (1.29) | Bold 700 | 섹션 타이틀 |
+| `--font-display1` | 32px | 40px (1.25) | Bold 700 | 메인 대시보드 제목 |
+| `--font-display2` | 28px | 36px (1.29) | Bold 700 | 섹션 타이틀 |
 
 ### Heading
 
@@ -39,9 +39,9 @@
 
 | Token | Size | Line Height | Weight | 용도 |
 |-------|------|-------------|--------|------|
-| `--dr-ai-font-heading1` | 24px | 32px (1.33) | SemiBold 600 | 카드 모듈 제목 |
-| `--dr-ai-font-heading2` | 20px | 28px (1.4) | SemiBold 600 | 서브 섹션 제목 |
-| `--dr-ai-font-heading3` | 18px | 26px (1.44) | SemiBold 600 | 그룹 헤더 |
+| `--font-heading1` | 24px | 32px (1.33) | SemiBold 600 | 카드 모듈 제목 |
+| `--font-heading2` | 20px | 28px (1.4) | SemiBold 600 | 서브 섹션 제목 |
+| `--font-heading3` | 18px | 26px (1.44) | SemiBold 600 | 그룹 헤더 |
 
 ### Body
 
@@ -49,10 +49,10 @@
 
 | Token | Size | Line Height | Weight | 용도 |
 |-------|------|-------------|--------|------|
-| `--dr-ai-font-body1` | 16px | 24px (1.5) | Regular 400 | 기본 본문 |
-| `--dr-ai-font-body1-medium` | 16px | 24px (1.5) | Medium 500 | 강조 본문 |
-| `--dr-ai-font-body2` | 14px | 20px (1.43) | Regular 400 | 보조 본문, 리스트 |
-| `--dr-ai-font-body2-medium` | 14px | 20px (1.43) | Medium 500 | 강조 보조 본문 |
+| `--font-body1` | 16px | 24px (1.5) | Regular 400 | 기본 본문 |
+| `--font-body1-medium` | 16px | 24px (1.5) | Medium 500 | 강조 본문 |
+| `--font-body2` | 14px | 20px (1.43) | Regular 400 | 보조 본문, 리스트 |
+| `--font-body2-medium` | 14px | 20px (1.43) | Medium 500 | 강조 보조 본문 |
 
 ### Caption & Label
 
@@ -60,11 +60,11 @@
 
 | Token | Size | Line Height | Weight | 용도 |
 |-------|------|-------------|--------|------|
-| `--dr-ai-font-caption1` | 13px | 18px (1.38) | Regular 400 | 캡션, 타임스탬프 |
-| `--dr-ai-font-caption1-medium` | 13px | 18px (1.38) | Medium 500 | 강조 캡션 |
-| `--dr-ai-font-caption2` | 12px | 16px (1.33) | Regular 400 | 뱃지, 태그 |
-| `--dr-ai-font-caption2-medium` | 12px | 16px (1.33) | Medium 500 | 강조 뱃지 |
-| `--dr-ai-font-overline` | 11px | 14px (1.27) | SemiBold 600 | 오버라인 레이블 |
+| `--font-caption1` | 13px | 18px (1.38) | Regular 400 | 캡션, 타임스탬프 |
+| `--font-caption1-medium` | 13px | 18px (1.38) | Medium 500 | 강조 캡션 |
+| `--font-caption2` | 12px | 16px (1.33) | Regular 400 | 뱃지, 태그 |
+| `--font-caption2-medium` | 12px | 16px (1.33) | Medium 500 | 강조 뱃지 |
+| `--font-overline` | 11px | 14px (1.27) | SemiBold 600 | 오버라인 레이블 |
 
 ---
 
@@ -72,10 +72,10 @@
 
 | Token | Value | 용도 |
 |-------|-------|------|
-| `--dr-ai-font-weight-regular` | 400 | 본문, 설명 |
-| `--dr-ai-font-weight-medium` | 500 | 강조 본문, 레이블 |
-| `--dr-ai-font-weight-semibold` | 600 | 제목, 헤딩 |
-| `--dr-ai-font-weight-bold` | 700 | 디스플레이, 강한 강조 |
+| `--font-weight-regular` | 400 | 본문, 설명 |
+| `--font-weight-medium` | 500 | 강조 본문, 레이블 |
+| `--font-weight-semibold` | 600 | 제목, 헤딩 |
+| `--font-weight-bold` | 700 | 디스플레이, 강한 강조 |
 
 ---
 
@@ -87,7 +87,7 @@
 
 ```css
 .vital-sign-value {
-  font-family: var(--dr-ai-font-family-mono);
+  font-family: var(--font-family-mono);
   font-size: 20px;
   font-weight: 700;
   font-variant-numeric: tabular-nums;  /* 숫자 폭 고정 */
@@ -100,8 +100,8 @@
 
 ```css
 .patient-name {
-  font-size: var(--dr-ai-font-heading2);
-  font-weight: var(--dr-ai-font-weight-semibold);
+  font-size: var(--font-heading2);
+  font-weight: var(--font-weight-semibold);
   letter-spacing: -0.01em;
 }
 ```
@@ -112,9 +112,9 @@
 
 ```css
 .prescription-code {
-  font-family: var(--dr-ai-font-family-mono);
+  font-family: var(--font-family-mono);
   font-size: 12px;
-  color: var(--dr-ai-color-text-secondary);
+  color: var(--color-text-secondary);
 }
 ```
 

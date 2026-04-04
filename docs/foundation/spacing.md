@@ -1,18 +1,18 @@
 <script setup>
 const spacingItems = [
-  { token: '--dr-ai-spacing-0', value: '0px', usage: '없음' },
-  { token: '--dr-ai-spacing-2', value: '2px', usage: '미세 간격 (아이콘-텍스트 보정)' },
-  { token: '--dr-ai-spacing-4', value: '4px', usage: '최소 간격 (인라인 요소)' },
-  { token: '--dr-ai-spacing-6', value: '6px', usage: '압축 간격' },
-  { token: '--dr-ai-spacing-8', value: '8px', usage: '컴팩트 간격 (카드 내부)' },
-  { token: '--dr-ai-spacing-12', value: '12px', usage: '기본 요소 간격' },
-  { token: '--dr-ai-spacing-16', value: '16px', usage: '기본 패딩' },
-  { token: '--dr-ai-spacing-20', value: '20px', usage: '섹션 내 간격' },
-  { token: '--dr-ai-spacing-24', value: '24px', usage: '카드 패딩' },
-  { token: '--dr-ai-spacing-32', value: '32px', usage: '섹션 간 간격' },
-  { token: '--dr-ai-spacing-40', value: '40px', usage: '큰 섹션 간격' },
-  { token: '--dr-ai-spacing-48', value: '48px', usage: '페이지 여백' },
-  { token: '--dr-ai-spacing-64', value: '64px', usage: '최대 간격' },
+  { token: '--spacing-0', value: '0px', usage: '없음' },
+  { token: '--spacing-2', value: '2px', usage: '미세 간격 (아이콘-텍스트 보정)' },
+  { token: '--spacing-4', value: '4px', usage: '최소 간격 (인라인 요소)' },
+  { token: '--spacing-6', value: '6px', usage: '압축 간격' },
+  { token: '--spacing-8', value: '8px', usage: '컴팩트 간격 (카드 내부)' },
+  { token: '--spacing-12', value: '12px', usage: '기본 요소 간격' },
+  { token: '--spacing-16', value: '16px', usage: '기본 패딩' },
+  { token: '--spacing-20', value: '20px', usage: '섹션 내 간격' },
+  { token: '--spacing-24', value: '24px', usage: '카드 패딩' },
+  { token: '--spacing-32', value: '32px', usage: '섹션 간 간격' },
+  { token: '--spacing-40', value: '40px', usage: '큰 섹션 간격' },
+  { token: '--spacing-48', value: '48px', usage: '페이지 여백' },
+  { token: '--spacing-64', value: '64px', usage: '최대 간격' },
 ]
 
 const radiusItems = [
@@ -76,14 +76,14 @@ const shadowItems = [
 
 | Token | Value | 용도 |
 |-------|-------|------|
-| `--dr-ai-layout-topbar-height` | 56px | 상단 내비게이션 |
-| `--dr-ai-layout-sidebar-width` | 240px | 좌측 사이드바 |
-| `--dr-ai-layout-sidebar-collapsed` | 64px | 사이드바 접힌 상태 |
-| `--dr-ai-layout-quick-panel-width` | 320px | 우측 퀵 패널 |
-| `--dr-ai-layout-statusbar-height` | 32px | 하단 상태바 |
-| `--dr-ai-layout-card-gap` | 12px | 카드 모듈 간 간격 |
-| `--dr-ai-layout-card-min-width` | 280px | 카드 최소 너비 |
-| `--dr-ai-layout-card-min-height` | 200px | 카드 최소 높이 |
+| `--layout-topbar-height` | 56px | 상단 내비게이션 |
+| `--layout-sidebar-width` | 240px | 좌측 사이드바 |
+| `--layout-sidebar-collapsed` | 64px | 사이드바 접힌 상태 |
+| `--layout-quick-panel-width` | 320px | 우측 퀵 패널 |
+| `--layout-statusbar-height` | 32px | 하단 상태바 |
+| `--layout-card-gap` | 12px | 카드 모듈 간 간격 |
+| `--layout-card-min-width` | 280px | 카드 최소 너비 |
+| `--layout-card-min-height` | 200px | 카드 최소 높이 |
 
 ---
 
@@ -91,16 +91,16 @@ const shadowItems = [
 
 | Token | Value | 용도 |
 |-------|-------|------|
-| `--dr-ai-z-base` | 0 | 기본 콘텐츠 |
-| `--dr-ai-z-card` | 10 | 카드 모듈 |
-| `--dr-ai-z-card-dragging` | 20 | 드래그 중인 카드 |
-| `--dr-ai-z-sidebar` | 30 | 사이드바 |
-| `--dr-ai-z-topbar` | 40 | 상단 내비게이션 |
-| `--dr-ai-z-dropdown` | 50 | 드롭다운 메뉴 |
-| `--dr-ai-z-overlay` | 60 | 오버레이/딤 |
-| `--dr-ai-z-modal` | 70 | 모달 |
-| `--dr-ai-z-toast` | 80 | 토스트 알림 |
-| `--dr-ai-z-tooltip` | 90 | 툴팁 |
+| `--z-base` | 0 | 기본 콘텐츠 |
+| `--z-card` | 10 | 카드 모듈 |
+| `--z-card-dragging` | 20 | 드래그 중인 카드 |
+| `--z-sidebar` | 30 | 사이드바 |
+| `--z-topbar` | 40 | 상단 내비게이션 |
+| `--z-dropdown` | 50 | 드롭다운 메뉴 |
+| `--z-overlay` | 60 | 오버레이/딤 |
+| `--z-modal` | 70 | 모달 |
+| `--z-toast` | 80 | 토스트 알림 |
+| `--z-tooltip` | 90 | 툴팁 |
 
 ---
 

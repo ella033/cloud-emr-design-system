@@ -74,7 +74,7 @@ Default → Hover → Active → Focus
 |------|-----------|
 | `hover` | 배경 한 단계 진하게 |
 | `active` | 배경 두 단계 진하게 + scale(0.98) |
-| `focus` | `--dr-ai-color-border-focus` 링 2px |
+| `focus` | `--color-border-focus` 링 2px |
 | `disabled` | opacity: 0.5, cursor: not-allowed |
 | `loading` | 텍스트 숨기고 스피너 표시, 클릭 방지 |
 

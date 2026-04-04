@@ -104,16 +104,16 @@ import { Badge } from '@cloud-emr/design-system';
 
 ```css
 /* Badge sizing tokens */
---dr-ai-badge-xsmall-font-size: 11px;
---dr-ai-badge-xsmall-padding: 1px 6px;
---dr-ai-badge-small-font-size: 12px;
---dr-ai-badge-small-padding: 2px 8px;
---dr-ai-badge-medium-font-size: 14px;
---dr-ai-badge-medium-padding: 4px 10px;
---dr-ai-badge-large-font-size: 16px;
---dr-ai-badge-large-padding: 6px 12px;
---dr-ai-badge-border-radius: 9999px;
---dr-ai-badge-font-weight: 500;
+--badge-xsmall-font-size: 11px;
+--badge-xsmall-padding: 1px 6px;
+--badge-small-font-size: 12px;
+--badge-small-padding: 2px 8px;
+--badge-medium-font-size: 14px;
+--badge-medium-padding: 4px 10px;
+--badge-large-font-size: 16px;
+--badge-large-padding: 6px 12px;
+--badge-border-radius: 9999px;
+--badge-font-weight: 500;
 ```
 
 ---

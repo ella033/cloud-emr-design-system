@@ -73,11 +73,11 @@ CSS 변수로 디자인 토큰에 직접 접근할 수 있습니다.
 
 ```css
 .custom-element {
-  color: var(--dr-ai-color-text-primary);
-  background: var(--dr-ai-color-bg-card);
-  border-radius: var(--dr-ai-radius-md);
-  padding: var(--dr-ai-spacing-16);
-  font-size: var(--dr-ai-font-size-body1);
+  color: var(--color-text-primary);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-16);
+  font-size: var(--font-size-body1);
 }
 ```
 

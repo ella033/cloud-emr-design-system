@@ -31,8 +31,8 @@ import { Icon } from '@cloud-emr/design-system';
 <Icon name="stethoscope" size={24} />
 
 // 색상 지정
-<Icon name="alert-triangle" color="var(--dr-ai-color-error)" />
-<Icon name="check-circle" color="var(--dr-ai-color-success)" />
+<Icon name="alert-triangle" color="var(--color-error)" />
+<Icon name="check-circle" color="var(--color-success)" />
 ```
 
 ### CSS에서 직접 사용
@@ -110,10 +110,10 @@ import { Icon } from '@cloud-emr/design-system';
 ### 상태 아이콘
 
 ```tsx
-<Icon name="check-circle" color="var(--dr-ai-color-success)" /> 정상
-<Icon name="alert-triangle" color="var(--dr-ai-color-warning)" /> 주의
-<Icon name="x-circle" color="var(--dr-ai-color-error)" /> 위험
-<Icon name="info" color="var(--dr-ai-color-info)" /> 참고
+<Icon name="check-circle" color="var(--color-success)" /> 정상
+<Icon name="alert-triangle" color="var(--color-warning)" /> 주의
+<Icon name="x-circle" color="var(--color-error)" /> 위험
+<Icon name="info" color="var(--color-info)" /> 참고
 ```
 
 ### 버튼 + 아이콘
