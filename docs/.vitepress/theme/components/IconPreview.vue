@@ -193,7 +193,6 @@ async function copyName(name) {
 
 .icon-img {
   display: block;
-  filter: var(--vp-c-text-1) == '#fff' ? invert(1) : none;
 }
 /* Dark mode: invert black SVGs to white */
 .dark .icon-img { filter: invert(1); }
