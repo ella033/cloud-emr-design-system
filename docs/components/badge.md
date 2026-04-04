@@ -100,19 +100,49 @@ import { Badge } from '@cloud-emr/design-system';
 
 ---
 
-## 디자인 토큰
+## 디자인 토큰 매핑
+
+### Solid Variant (Light / Dark)
+
+| Color | 배경 토큰 | Light | Dark | 텍스트 |
+|-------|----------|-------|------|--------|
+| blue | `--badge-solid-blue-bg` | `#3B82F6` | `#3B82F6` | `#FFFFFF` |
+| green | `--badge-solid-green-bg` | `#22C55E` | `#22C55E` | `#FFFFFF` |
+| red | `--badge-solid-red-bg` | `#DC2626` | `#DC2626` | `#FFFFFF` |
+| yellow | `--badge-solid-yellow-bg` | `#EAB308` | `#EAB308` | `#FFFFFF` |
+| teal | `--badge-solid-teal-bg` | `#14B8A6` | `#14B8A6` | `#FFFFFF` |
+| gray | `--badge-solid-gray-bg` | `#64748B` | `#64748B` | `#FFFFFF` |
+
+### Subtle Variant (Light / Dark)
+
+| Color | 배경 토큰 | Light BG | Dark BG | Light Text | Dark Text |
+|-------|----------|----------|---------|------------|-----------|
+| blue | `--badge-subtle-blue-bg` | `#DBEAFE` | `#172554` | `#1D4ED8` | `#60A5FA` |
+| green | `--badge-subtle-green-bg` | `#DCFCE7` | `#052E16` | `#15803D` | `#4ADE80` |
+| red | `--badge-subtle-red-bg` | `#FEE2E2` | `#450A0A` | `#DC2626` | `#F87171` |
+| yellow | `--badge-subtle-yellow-bg` | `#FEF9C3` | `#422006` | `#A16207` | `#FACC15` |
+| teal | `--badge-subtle-teal-bg` | `#CCFBF1` | `#042F2E` | `#0F766E` | `#14B8A6` |
+| gray | `--badge-subtle-gray-bg` | `#F1F5F9` | `#334155` | `#475569` | `#94A3B8` |
+
+### Size 토큰
+
+| Size | Font Size 토큰 | Padding 토큰 |
+|------|---------------|-------------|
+| xsmall | `--badge-xs-font-size` 11px | `--badge-xs-padding` 1px 6px |
+| small | `--badge-sm-font-size` 12px | `--badge-sm-padding` 2px 8px |
+| medium | `--badge-md-font-size` 14px | `--badge-md-padding` 4px 10px |
+| large | `--badge-lg-font-size` 16px | `--badge-lg-padding` 6px 12px |
+
+공통: `--badge-radius: var(--radius-full)` / `--badge-font-weight: 500`
 
 ```css
-/* Badge sizing tokens */
---badge-xsmall-font-size: 11px;
---badge-xsmall-padding: 1px 6px;
---badge-small-font-size: 12px;
---badge-small-padding: 2px 8px;
---badge-medium-font-size: 14px;
---badge-medium-padding: 4px 10px;
---badge-large-font-size: 16px;
---badge-large-padding: 6px 12px;
---badge-border-radius: 9999px;
+/* 사용 예시 */
+.badge-solid-blue {
+  background: var(--badge-solid-blue-bg);
+  color: var(--badge-solid-blue-text);
+  font-size: var(--badge-sm-font-size);
+  padding: var(--badge-sm-padding);
+  border-radius: var(--badge-radius);
 --badge-font-weight: 500;
 ```
 

@@ -56,26 +56,44 @@ import { Input } from '@cloud-emr/design-system';
 
 ---
 
-## Size
+## Size 토큰
 
-| Size | Height | Font Size | 용도 |
-|------|--------|-----------|------|
-| `small` | 32px | 13px | 테이블 내 인라인 편집 |
-| `medium` | 40px | 14px | 기본 폼 입력 |
-| `large` | 48px | 16px | 검색 필드, 주요 입력 |
+| Size | 토큰 (Height) | 토큰 (Padding) | 토큰 (Font Size) | 용도 |
+|------|--------------|----------------|-----------------|------|
+| `small` | `--input-sm-height` 32px | `--input-sm-padding` 6px 10px | `--input-sm-font-size` 13px | 테이블 내 인라인 편집 |
+| `medium` | `--input-md-height` 40px | `--input-md-padding` 10px 12px | `--input-md-font-size` 14px | 기본 폼 입력 |
+| `large` | `--input-lg-height` 48px | `--input-lg-padding` 12px 14px | `--input-lg-font-size` 16px | 검색 필드, 주요 입력 |
+
+공통: `--input-radius: var(--radius-md)` / `--input-transition: border-color 0.15s, box-shadow 0.15s`
 
 ---
 
-## 상태
+## State x Token 매핑
 
-| 상태 | Border | Background | 설명 |
-|------|--------|------------|------|
-| `default` | `gray-200` | `white` | 기본 |
-| `hover` | `gray-300` | `white` | 마우스 오버 |
-| `focus` | `blue-500` (2px) | `white` | 포커스 |
-| `error` | `red-500` | `white` | 에러 |
-| `disabled` | `gray-200` | `gray-100` | 비활성 |
-| `readOnly` | `transparent` | `gray-50` | 읽기 전용 |
+| State | 배경 토큰 | 보더 토큰 | 텍스트 토큰 | 추가 토큰 |
+|-------|----------|----------|-----------|----------|
+| Default | `--input-bg` | `--input-border` | `--input-text` | — |
+| Hover | `--input-bg-hover` | `--input-border-hover` | `--input-text` | — |
+| Focus | `--input-bg-focus` | `--input-border-focus` | `--input-text` | `--input-focus-ring` |
+| Error | `--input-bg-error` | `--input-border-error` | `--input-text` | `--input-error-ring` |
+| Disabled | `--input-bg-disabled` | `--input-border-disabled` | `--input-text-disabled` | — |
+| ReadOnly | `--input-bg-readonly` | `--input-border-readonly` | `--input-text-readonly` | — |
+
+### Light / Dark 값
+
+| 토큰 | Light | Dark |
+|------|-------|------|
+| `--input-bg` | `#FFFFFF` | `var(--gray-800)` |
+| `--input-border` | `var(--gray-200)` | `var(--gray-700)` |
+| `--input-border-hover` | `var(--gray-300)` | `var(--gray-600)` |
+| `--input-border-focus` | `#3B82F6` | `#60A5FA` |
+| `--input-border-error` | `#EF4444` | `#F87171` |
+| `--input-focus-ring` | `0 0 0 3px rgba(59,130,246,0.15)` | `0 0 0 3px rgba(96,165,250,0.2)` |
+| `--input-error-ring` | `0 0 0 3px rgba(239,68,68,0.1)` | `0 0 0 3px rgba(248,113,113,0.15)` |
+| `--input-label-color` | `var(--gray-600)` | `var(--gray-400)` |
+| `--input-label-error-color` | `#DC2626` | `#F87171` |
+| `--input-error-msg-color` | `#DC2626` | `#F87171` |
+| `--input-text-placeholder` | `var(--gray-400)` | `var(--gray-500)` |
 
 ---
 

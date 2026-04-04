@@ -164,54 +164,54 @@ const searchVal = ref('')
   color: var(--vp-c-text-2);
   margin-bottom: 4px;
 }
-.inp-label-error { color: #DC2626; }
-.dark .inp-label-error { color: #F87171; }
-.inp-label-disabled { color: var(--vp-c-text-3); }
+.inp-label-error { color: var(--input-label-error-color, #DC2626); }
+.dark .inp-label-error { color: var(--input-label-error-color, #F87171); }
+.inp-label-disabled { color: var(--input-label-disabled-color, #CBD5E1); }
 
 .inp-wrap {
   display: flex;
   align-items: center;
-  border-radius: 8px;
+  border-radius: var(--input-radius, 8px);
   overflow: hidden;
-  transition: all 0.15s;
+  transition: var(--input-transition, border-color 0.15s, box-shadow 0.15s);
 }
 
 .inp-wrap.default {
-  border: 1px solid var(--vp-c-divider);
-  background: var(--vp-c-bg);
+  border: 1px solid var(--input-border, #E2E8F0);
+  background: var(--input-bg, #FFFFFF);
 }
 
 .inp-wrap.hover {
-  border: 1px solid var(--vp-c-text-3);
-  background: var(--vp-c-bg);
+  border: 1px solid var(--input-border-hover, #CBD5E1);
+  background: var(--input-bg-hover, #FFFFFF);
 }
 
 .inp-wrap.focus {
-  border: 2px solid #3B82F6;
-  background: var(--vp-c-bg);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  border: 2px solid var(--input-border-focus, #3B82F6);
+  background: var(--input-bg-focus, #FFFFFF);
+  box-shadow: var(--input-focus-ring, 0 0 0 3px rgba(59, 130, 246, 0.15));
 }
 
 .inp-wrap.filled {
-  border: 1px solid var(--vp-c-divider);
-  background: var(--vp-c-bg);
+  border: 1px solid var(--input-border, #E2E8F0);
+  background: var(--input-bg, #FFFFFF);
 }
 
 .inp-wrap.error-state {
-  border: 2px solid #EF4444;
-  background: var(--vp-c-bg);
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  border: 2px solid var(--input-border-error, #EF4444);
+  background: var(--input-bg-error, #FFFFFF);
+  box-shadow: var(--input-error-ring, 0 0 0 3px rgba(239, 68, 68, 0.1));
 }
 
 .inp-wrap.disabled-state {
-  border: 1px solid var(--vp-c-divider);
-  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--input-border-disabled, #E2E8F0);
+  background: var(--input-bg-disabled, #F1F5F9);
   opacity: 0.6;
   cursor: not-allowed;
 }
 
 .inp-wrap.readonly-state {
-  border: 1px solid transparent;
+  border: 1px solid var(--input-border-readonly, transparent);
   background: var(--vp-c-bg-soft);
 }
 
@@ -257,10 +257,10 @@ const searchVal = ref('')
 
 .inp-error-msg {
   font-size: 11px;
-  color: #DC2626;
+  color: var(--input-error-msg-color, #DC2626);
   margin-top: 4px;
 }
-.dark .inp-error-msg { color: #F87171; }
+.dark .inp-error-msg { color: var(--input-error-msg-color, #F87171); }
 
 .inp-helper {
   font-size: 11px;

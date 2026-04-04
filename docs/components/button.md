@@ -40,43 +40,82 @@ import { Button } from '@cloud-emr/design-system';
 
 ---
 
-## Variant
+## Variant x State 토큰 매핑
 
-| Variant | 용도 | 배경 | 텍스트 |
-|---------|------|------|--------|
-| `primary` | 주요 액션 (처방 전송, 확인) | `blue-500` | `white` |
-| `secondary` | 보조 액션 (저장, 수정) | `blue-50` | `blue-600` |
-| `outline` | 일반 액션 (취소, 닫기) | `transparent` | `gray-600` |
-| `ghost` | 최소 강조 액션 | `transparent` | `gray-500` |
-| `danger` | 위험 액션 (삭제, 중단) | `red-600` | `white` |
+### Primary
+
+| State | 토큰 | Light | Dark |
+|-------|------|-------|------|
+| Default | `--btn-primary-bg` | `#3B82F6` | `#3B82F6` |
+| Hover | `--btn-primary-bg-hover` | `#2563EB` | `#60A5FA` |
+| Active | `--btn-primary-bg-active` | `#1D4ED8` | `#93C5FD` |
+| Disabled | `--btn-primary-bg-disabled` | `#3B82F6` (opacity 0.5) | `#3B82F6` (opacity 0.5) |
+| Text | `--btn-primary-text` | `#FFFFFF` | `#FFFFFF` |
+| Border | `--btn-primary-border` | `transparent` | `transparent` |
+| Focus Ring | `--btn-primary-focus-ring` | `0 0 0 3px rgba(59,130,246,0.3)` | `0 0 0 3px rgba(96,165,250,0.3)` |
+
+### Secondary
+
+| State | 토큰 | Light | Dark |
+|-------|------|-------|------|
+| Default | `--btn-secondary-bg` | `#EFF6FF` | `#172554` |
+| Hover | `--btn-secondary-bg-hover` | `#DBEAFE` | `#1E3A8A` |
+| Active | `--btn-secondary-bg-active` | `#BFDBFE` | `#1E40AF` |
+| Text | `--btn-secondary-text` | `#2563EB` | `#60A5FA` |
+| Border | `--btn-secondary-border` | `#BFDBFE` | `#1E3A8A` |
+| Border Hover | `--btn-secondary-border-hover` | `#93C5FD` | `#1E40AF` |
+
+### Outline
+
+| State | 토큰 | Light | Dark |
+|-------|------|-------|------|
+| Default | `--btn-outline-bg` | `transparent` | `transparent` |
+| Hover | `--btn-outline-bg-hover` | `var(--gray-50)` | `var(--gray-800)` |
+| Active | `--btn-outline-bg-active` | `var(--gray-100)` | `var(--gray-700)` |
+| Text | `--btn-outline-text` | `var(--gray-600)` | `var(--gray-300)` |
+| Text Hover | `--btn-outline-text-hover` | `var(--gray-700)` | `var(--gray-100)` |
+| Border | `--btn-outline-border` | `var(--gray-200)` | `var(--gray-700)` |
+
+### Ghost
+
+| State | 토큰 | Light | Dark |
+|-------|------|-------|------|
+| Default | `--btn-ghost-bg` | `transparent` | `transparent` |
+| Hover | `--btn-ghost-bg-hover` | `var(--gray-100)` | `var(--gray-800)` |
+| Text | `--btn-ghost-text` | `var(--gray-500)` | `var(--gray-400)` |
+| Text Hover | `--btn-ghost-text-hover` | `var(--gray-700)` | `var(--gray-200)` |
+
+### Danger
+
+| State | 토큰 | Light | Dark |
+|-------|------|-------|------|
+| Default | `--btn-danger-bg` | `#DC2626` | `#DC2626` |
+| Hover | `--btn-danger-bg-hover` | `#B91C1C` | `#EF4444` |
+| Active | `--btn-danger-bg-active` | `#991B1B` | `#F87171` |
+| Text | `--btn-danger-text` | `#FFFFFF` | `#FFFFFF` |
+| Focus Ring | `--btn-danger-focus-ring` | `0 0 0 3px rgba(220,38,38,0.3)` | `0 0 0 3px rgba(239,68,68,0.3)` |
 
 ---
 
-## Size
+## Size 토큰
 
-| Size | Height | Padding | Font Size | 용도 |
-|------|--------|---------|-----------|------|
-| `small` | 32px | 6px 12px | 13px | 테이블 내 액션, 인라인 버튼 |
-| `medium` | 40px | 10px 20px | 14px | 기본 버튼 |
-| `large` | 48px | 12px 24px | 16px | 주요 CTA, 모달 확인 |
+| Size | 토큰 (Height) | 토큰 (Padding) | 토큰 (Font Size) | 용도 |
+|------|--------------|----------------|-----------------|------|
+| `small` | `--btn-sm-height` 32px | `--btn-sm-padding` 6px 12px | `--btn-sm-font-size` 13px | 테이블 내 액션 |
+| `medium` | `--btn-md-height` 40px | `--btn-md-padding` 10px 20px | `--btn-md-font-size` 14px | 기본 버튼 |
+| `large` | `--btn-lg-height` 48px | `--btn-lg-padding` 12px 24px | `--btn-lg-font-size` 16px | 주요 CTA |
+
+공통: `--btn-font-weight: 600` / `--btn-transition: all 0.15s ease` / `--btn-active-scale: 0.98` / `--btn-radius: var(--radius-md)`
 
 ---
 
-## 상태 (States)
+## 상태 흐름
 
 ```
 Default → Hover → Active → Focus
-                              ↘ Disabled
-                              ↘ Loading
+                              ↘ Disabled (opacity: --btn-*-opacity-disabled)
+                              ↘ Loading (스피너 + pointer-events: none)
 ```
-
-| 상태 | 시각적 변화 |
-|------|-----------|
-| `hover` | 배경 한 단계 진하게 |
-| `active` | 배경 두 단계 진하게 + scale(0.98) |
-| `focus` | `--color-border-focus` 링 2px |
-| `disabled` | opacity: 0.5, cursor: not-allowed |
-| `loading` | 텍스트 숨기고 스피너 표시, 클릭 방지 |
 
 ---
 
