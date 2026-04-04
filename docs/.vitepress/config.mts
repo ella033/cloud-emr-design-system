@@ -32,6 +32,7 @@ export default defineConfig({
           { text: '컬러', link: '/foundation/colors' },
           { text: '타이포그래피', link: '/foundation/typography' },
           { text: '스페이싱 & 레이아웃', link: '/foundation/spacing' },
+          { text: '아이콘', link: '/foundation/iconography' },
         ],
       },
       {

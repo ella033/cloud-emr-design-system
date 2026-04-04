@@ -82,3 +82,14 @@
   background: var(--vp-c-bg-soft);
   font-weight: 600;
 }
+
+/* Force emr-table to fill full width — override VitePress defaults */
+.vp-doc .emr-table {
+  width: 100% !important;
+  table-layout: fixed !important;
+  display: table !important;
+}
+
+.vp-doc .table-scroll-wrap .emr-table {
+  table-layout: auto !important;
+}
