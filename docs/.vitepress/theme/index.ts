@@ -14,6 +14,7 @@ import ToastStates from './components/ToastStates.vue'
 import ModalStates from './components/ModalStates.vue'
 import TableStates from './components/TableStates.vue'
 import IconPreview from './components/IconPreview.vue'
+import SvgIcon from './components/SvgIcon.vue'
 
 export default {
   extends: DefaultTheme,
@@ -32,5 +33,6 @@ export default {
     app.component('ModalStates', ModalStates)
     app.component('TableStates', TableStates)
     app.component('IconPreview', IconPreview)
+    app.component('SvgIcon', SvgIcon)
   }
 }

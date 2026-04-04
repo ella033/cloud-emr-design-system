@@ -61,7 +61,7 @@ const cases = [
         <!-- 2. 알러지 경고 -->
         <div v-if="activeCase === 'alert-allergy'" class="modal-box danger-modal">
           <div class="modal-header danger-header">
-            <span class="modal-icon-danger">⚠️</span>
+            <span class="modal-icon-danger"><SvgIcon name="alert-triangle" :size="20" /></span>
             <span class="modal-title">알러지 경고</span>
           </div>
           <div class="modal-body">
@@ -98,7 +98,7 @@ const cases = [
         <!-- 3. 에러 안내 -->
         <div v-if="activeCase === 'error'" class="modal-box error-modal">
           <div class="modal-header error-header">
-            <span class="modal-icon-error">✕</span>
+            <span class="modal-icon-error"><SvgIcon name="x-circle" :size="18" /></span>
             <span class="modal-title">처방 전송 실패</span>
           </div>
           <div class="modal-body">
@@ -120,7 +120,7 @@ const cases = [
         <!-- 4. 금지 처방 -->
         <div v-if="activeCase === 'forbidden'" class="modal-box danger-modal">
           <div class="modal-header danger-header">
-            <span class="modal-icon-danger">🚫</span>
+            <span class="modal-icon-danger"><SvgIcon name="alert-circle" :size="20" /></span>
             <span class="modal-title">처방 불가 약물</span>
           </div>
           <div class="modal-body">
@@ -212,7 +212,7 @@ const cases = [
         <!-- 6. 안내 문구 -->
         <div v-if="activeCase === 'info'" class="modal-box">
           <div class="modal-header info-header">
-            <span class="modal-icon-info">ℹ️</span>
+            <span class="modal-icon-info"><SvgIcon name="info" :size="20" /></span>
             <span class="modal-title">진료 안내</span>
           </div>
           <div class="modal-body">
@@ -250,7 +250,7 @@ const cases = [
         <!-- 7. 삭제 확인 -->
         <div v-if="activeCase === 'delete'" class="modal-box danger-modal small-modal">
           <div class="modal-header danger-header">
-            <span class="modal-icon-danger">🗑️</span>
+            <span class="modal-icon-danger"><SvgIcon name="trash" :size="20" /></span>
             <span class="modal-title">처방을 삭제하시겠습니까?</span>
           </div>
           <div class="modal-body">
@@ -289,9 +289,9 @@ const cases = [
             <div class="form-group">
               <label class="form-label">포함 처방</label>
               <div class="form-chips">
-                <span class="form-chip">타이레놀 500mg ✕</span>
-                <span class="form-chip">클로르페니라민 ✕</span>
-                <span class="form-chip">덱스트로메토르판 ✕</span>
+                <span class="form-chip">타이레놀 500mg x</span>
+                <span class="form-chip">클로르페니라민 x</span>
+                <span class="form-chip">덱스트로메토르판 x</span>
               </div>
             </div>
             <div class="form-group">

@@ -102,7 +102,7 @@ const searchVal = ref('')
       <div class="state-demo">
         <label class="inp-label">진단 코드</label>
         <div class="inp-wrap default inp-with-icon">
-          <span class="inp-icon">🔍</span>
+          <span class="inp-icon"><SvgIcon name="search" :size="14" /></span>
           <input type="text" placeholder="KCD 코드 또는 질환명" class="inp inp-padded" readonly />
         </div>
         <div class="inp-helper">KCD 코드 또는 질환명으로 검색</div>

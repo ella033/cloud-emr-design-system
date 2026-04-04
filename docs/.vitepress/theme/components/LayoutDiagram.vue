@@ -8,9 +8,9 @@
       <div class="ld-logo">의사랑AI</div>
       <div class="ld-topbar-center">환자: 홍길동 (M/45)</div>
       <div class="ld-topbar-right">
-        <span class="ld-icon-btn">🔍</span>
-        <span class="ld-icon-btn">🔔</span>
-        <span class="ld-icon-btn">⚙️</span>
+        <span class="ld-icon-btn"><SvgIcon name="search" :size="12" /></span>
+        <span class="ld-icon-btn"><SvgIcon name="bell" :size="12" /></span>
+        <span class="ld-icon-btn"><SvgIcon name="settings" :size="12" /></span>
       </div>
     </div>
 
@@ -19,7 +19,7 @@
       <!-- Sidebar -->
       <div class="ld-sidebar">
         <div class="ld-sidebar-title">환자 목록</div>
-        <div class="ld-sidebar-search">🔍 검색...</div>
+        <div class="ld-sidebar-search"><SvgIcon name="search" :size="10" /> 검색...</div>
         <div class="ld-sidebar-section">대기</div>
         <div class="ld-patient active">
           <span class="ld-dot waiting"></span> 홍길동
@@ -40,7 +40,7 @@
       <!-- Content Grid -->
       <div class="ld-content">
         <div class="ld-card small">
-          <div class="ld-card-header">👤 환자 기본정보</div>
+          <div class="ld-card-header"><SvgIcon name="user" :size="12" /> 환자 기본정보</div>
           <div class="ld-card-body">
             <div style="font-weight:600;">홍길동 (남/45)</div>
             <div style="font-size:10px; color:#94A3B8;">1981.03.15</div>
@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="ld-card small">
-          <div class="ld-card-header">📅 내원일 히스토리</div>
+          <div class="ld-card-header"><SvgIcon name="calendar" :size="12" /> 내원일 히스토리</div>
           <div class="ld-card-body">
             <div class="ld-timeline-item">● 2026.04.01 감기</div>
             <div class="ld-timeline-item">○ 2026.03.15 정기검진</div>
@@ -59,7 +59,7 @@
           </div>
         </div>
         <div class="ld-card large">
-          <div class="ld-card-header">💊 진단 및 처방</div>
+          <div class="ld-card-header"><SvgIcon name="pill" :size="12" /> 진단 및 처방</div>
           <div class="ld-card-body">
             <div class="ld-rx-row"><span>J06.9 급성 상기도감염</span><span class="ld-tag blue">주</span></div>
             <div class="ld-rx-row"><span>타이레놀 500mg</span><span style="font-size:10px; color:#94A3B8;">3T/3일</span></div>
@@ -68,7 +68,7 @@
           <div class="ld-card-footer">처방 전송</div>
         </div>
         <div class="ld-card small">
-          <div class="ld-card-header">📝 임상메모</div>
+          <div class="ld-card-header"><SvgIcon name="edit" :size="12" /> 임상메모</div>
           <div class="ld-card-body">
             <div style="font-size:10px; font-weight:600; color:#60A5FA;">S (Subjective)</div>
             <div style="font-size:10px;">두통, 발열 3일째...</div>
@@ -77,7 +77,7 @@
           </div>
         </div>
         <div class="ld-card small">
-          <div class="ld-card-header">💬 환자메모</div>
+          <div class="ld-card-header"><SvgIcon name="message" :size="12" /> 환자메모</div>
           <div class="ld-card-body chat">
             <div class="ld-chat-msg right">혈압 추적관찰 필요</div>
             <div class="ld-chat-msg left">네, 예약했습니다</div>
@@ -88,18 +88,18 @@
       <!-- Quick Panel -->
       <div class="ld-quick">
         <div class="ld-quick-title">퀵오더</div>
-        <div class="ld-quick-item">🔍 검색...</div>
+        <div class="ld-quick-item"><SvgIcon name="search" :size="10" /> 검색...</div>
         <div class="ld-quick-section">최근 사용</div>
         <div class="ld-quick-item">타이레놀 500mg</div>
         <div class="ld-quick-item">CBC 검사</div>
         <div class="ld-quick-title" style="margin-top:12px;">묶음처방</div>
         <div class="ld-quick-set">
-          <div style="font-weight:600;">🏷 감기 기본 셋</div>
+          <div style="font-weight:600;"><SvgIcon name="bookmark" :size="10" /> 감기 기본 셋</div>
           <div style="font-size:9px; color:#94A3B8;">타이레놀 + 항히스타민</div>
           <div class="ld-quick-apply">적용 ▶</div>
         </div>
         <div class="ld-quick-set">
-          <div style="font-weight:600;">🏷 고혈압 f/u</div>
+          <div style="font-weight:600;"><SvgIcon name="bookmark" :size="10" /> 고혈압 f/u</div>
           <div style="font-size:9px; color:#94A3B8;">아무로디핀 + 모니터링</div>
           <div class="ld-quick-apply">적용 ▶</div>
         </div>

@@ -83,7 +83,7 @@ function isSelected(id) { return selectedRows.value.includes(id) }
               <td class="right mono">14:25</td>
             </tr>
             <tr class="row-emergency">
-              <td class="cell-name">이철수 <span class="inline-icon">🚨</span></td>
+              <td class="cell-name">이철수 <span class="inline-icon"><SvgIcon name="alert-circle" :size="12" /></span></td>
               <td>1990.11.03</td>
               <td>남</td>
               <td>외과</td>
@@ -193,8 +193,8 @@ function isSelected(id) { return selectedRows.value.includes(id) }
         <div class="case-tag">체크박스 & 아이콘 컨트롤 — 다중 선택, 행 액션 아이콘</div>
         <div class="table-toolbar">
           <span class="toolbar-selected" v-if="checkedRows.length">{{ checkedRows.length }}명 선택됨</span>
-          <span class="toolbar-btn" v-if="checkedRows.length">📨 일괄 문자 발송</span>
-          <span class="toolbar-btn delete-btn" v-if="checkedRows.length">🗑 선택 삭제</span>
+          <span class="toolbar-btn" v-if="checkedRows.length"><SvgIcon name="upload" :size="12" /> 일괄 문자 발송</span>
+          <span class="toolbar-btn delete-btn" v-if="checkedRows.length"><SvgIcon name="trash" :size="12" /> 선택 삭제</span>
           <span class="toolbar-btn" style="margin-left:auto;">+ 환자 등록</span>
         </div>
         <table class="emr-table">
@@ -216,9 +216,9 @@ function isSelected(id) { return selectedRows.value.includes(id) }
               <td>내과</td>
               <td class="center"><span class="badge badge-blue">진료중</span></td>
               <td class="center col-actions">
-                <span class="action-icon" title="차트 열기">📋</span>
-                <span class="action-icon" title="메모">💬</span>
-                <span class="action-icon" title="더보기">⋯</span>
+                <span class="action-icon" title="차트 열기"><SvgIcon name="clipboard" :size="14" /></span>
+                <span class="action-icon" title="메모"><SvgIcon name="message" :size="14" /></span>
+                <span class="action-icon" title="더보기"><SvgIcon name="more-horizontal" :size="14" /></span>
               </td>
             </tr>
             <tr :class="{ 'row-selected': checkedRows.includes('p2') }">
@@ -228,9 +228,9 @@ function isSelected(id) { return selectedRows.value.includes(id) }
               <td>내과</td>
               <td class="center"><span class="badge badge-yellow">대기</span></td>
               <td class="center col-actions">
-                <span class="action-icon" title="차트 열기">📋</span>
-                <span class="action-icon" title="메모">💬</span>
-                <span class="action-icon" title="더보기">⋯</span>
+                <span class="action-icon" title="차트 열기"><SvgIcon name="clipboard" :size="14" /></span>
+                <span class="action-icon" title="메모"><SvgIcon name="message" :size="14" /></span>
+                <span class="action-icon" title="더보기"><SvgIcon name="more-horizontal" :size="14" /></span>
               </td>
             </tr>
             <tr :class="{ 'row-selected': checkedRows.includes('p3') }">
@@ -240,9 +240,9 @@ function isSelected(id) { return selectedRows.value.includes(id) }
               <td>외과</td>
               <td class="center"><span class="badge badge-red">응급</span></td>
               <td class="center col-actions">
-                <span class="action-icon" title="차트 열기">📋</span>
-                <span class="action-icon" title="메모">💬</span>
-                <span class="action-icon" title="더보기">⋯</span>
+                <span class="action-icon" title="차트 열기"><SvgIcon name="clipboard" :size="14" /></span>
+                <span class="action-icon" title="메모"><SvgIcon name="message" :size="14" /></span>
+                <span class="action-icon" title="더보기"><SvgIcon name="more-horizontal" :size="14" /></span>
               </td>
             </tr>
             <tr :class="{ 'row-selected': checkedRows.includes('p4') }">
@@ -252,9 +252,9 @@ function isSelected(id) { return selectedRows.value.includes(id) }
               <td>내과</td>
               <td class="center"><span class="badge badge-green">완료</span></td>
               <td class="center col-actions">
-                <span class="action-icon" title="차트 열기">📋</span>
-                <span class="action-icon" title="메모">💬</span>
-                <span class="action-icon" title="더보기">⋯</span>
+                <span class="action-icon" title="차트 열기"><SvgIcon name="clipboard" :size="14" /></span>
+                <span class="action-icon" title="메모"><SvgIcon name="message" :size="14" /></span>
+                <span class="action-icon" title="더보기"><SvgIcon name="more-horizontal" :size="14" /></span>
               </td>
             </tr>
           </tbody>
@@ -316,8 +316,8 @@ function isSelected(id) { return selectedRows.value.includes(id) }
         </table>
         <div class="table-actions">
           <span class="action-btn">+ 약품 추가</span>
-          <span class="action-btn">📋 묶음처방</span>
-          <span class="action-btn">⭐ 즐겨찾기</span>
+          <span class="action-btn"><SvgIcon name="clipboard" :size="12" /> 묶음처방</span>
+          <span class="action-btn"><SvgIcon name="star" :size="12" /> 즐겨찾기</span>
         </div>
       </div>
 
@@ -643,8 +643,8 @@ function isSelected(id) { return selectedRows.value.includes(id) }
         <div class="case-tag">묶음처방 관리 테이블 — 체크박스 다중 선택, 일괄 작업</div>
         <div class="table-toolbar">
           <span class="toolbar-selected" v-if="selectedRows.length">{{ selectedRows.length }}개 선택됨</span>
-          <span class="toolbar-btn delete-btn" v-if="selectedRows.length">🗑 삭제</span>
-          <span class="toolbar-btn" v-if="selectedRows.length">📋 복제</span>
+          <span class="toolbar-btn delete-btn" v-if="selectedRows.length"><SvgIcon name="trash" :size="12" /> 삭제</span>
+          <span class="toolbar-btn" v-if="selectedRows.length"><SvgIcon name="copy" :size="12" /> 복제</span>
           <span class="toolbar-btn" style="margin-left:auto;">+ 새 묶음처방</span>
         </div>
         <table class="emr-table">
@@ -769,7 +769,7 @@ function isSelected(id) { return selectedRows.value.includes(id) }
             <tr>
               <td colspan="4" class="empty-cell">
                 <div class="empty-state">
-                  <div class="empty-icon">📋</div>
+                  <div class="empty-icon"><SvgIcon name="clipboard" :size="32" /></div>
                   <div class="empty-title">검색 결과가 없습니다</div>
                   <div class="empty-desc">검색 조건을 변경하거나 필터를 초기화해 주세요.</div>
                 </div>
@@ -802,7 +802,7 @@ function isSelected(id) { return selectedRows.value.includes(id) }
             <tr>
               <td colspan="4" class="empty-cell">
                 <div class="error-state">
-                  <div class="error-icon">⚠️</div>
+                  <div class="error-icon"><SvgIcon name="alert-triangle" :size="32" /></div>
                   <div class="error-title">데이터를 불러올 수 없습니다</div>
                   <div class="error-desc">네트워크 연결을 확인하고 다시 시도해 주세요.</div>
                   <button class="retry-btn">재시도</button>
