@@ -66,6 +66,7 @@ export default defineConfig({
           { text: 'Skeleton', link: '/components/skeleton' },
           { text: 'Menu', link: '/components/menu' },
           { text: 'Charts', link: '/components/charts' },
+          { text: 'Chart Primitives', link: '/components/chart-primitives' },
         ],
       },
       {
