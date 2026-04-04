@@ -22,6 +22,10 @@ import IconButtonStates from './components/IconButtonStates.vue'
 import TooltipStates from './components/TooltipStates.vue'
 import PaginationStates from './components/PaginationStates.vue'
 import ProgressStates from './components/ProgressStates.vue'
+import MenuStates from './components/MenuStates.vue'
+import MedicationTimeline from './components/MedicationTimeline.vue'
+import VitalChart from './components/VitalChart.vue'
+import AdherenceHeatmap from './components/AdherenceHeatmap.vue'
 
 export default {
   extends: DefaultTheme,
@@ -48,5 +52,9 @@ export default {
     app.component('TooltipStates', TooltipStates)
     app.component('PaginationStates', PaginationStates)
     app.component('ProgressStates', ProgressStates)
+    app.component('MenuStates', MenuStates)
+    app.component('MedicationTimeline', MedicationTimeline)
+    app.component('VitalChart', VitalChart)
+    app.component('AdherenceHeatmap', AdherenceHeatmap)
   }
 }

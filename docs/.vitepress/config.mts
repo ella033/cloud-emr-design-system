@@ -64,6 +64,8 @@ export default defineConfig({
           { text: 'Grid Menu', link: '/components/grid-menu' },
           { text: 'Result State', link: '/components/result-state' },
           { text: 'Skeleton', link: '/components/skeleton' },
+          { text: 'Menu', link: '/components/menu' },
+          { text: 'Charts', link: '/components/charts' },
         ],
       },
       {
