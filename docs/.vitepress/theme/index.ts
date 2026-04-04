@@ -15,6 +15,13 @@ import ModalStates from './components/ModalStates.vue'
 import TableStates from './components/TableStates.vue'
 import IconPreview from './components/IconPreview.vue'
 import SvgIcon from './components/SvgIcon.vue'
+import NumberStepperStates from './components/NumberStepperStates.vue'
+import TextAreaStates from './components/TextAreaStates.vue'
+import CheckboxStates from './components/CheckboxStates.vue'
+import IconButtonStates from './components/IconButtonStates.vue'
+import TooltipStates from './components/TooltipStates.vue'
+import PaginationStates from './components/PaginationStates.vue'
+import ProgressStates from './components/ProgressStates.vue'
 
 export default {
   extends: DefaultTheme,
@@ -34,5 +41,12 @@ export default {
     app.component('TableStates', TableStates)
     app.component('IconPreview', IconPreview)
     app.component('SvgIcon', SvgIcon)
+    app.component('NumberStepperStates', NumberStepperStates)
+    app.component('TextAreaStates', TextAreaStates)
+    app.component('CheckboxStates', CheckboxStates)
+    app.component('IconButtonStates', IconButtonStates)
+    app.component('TooltipStates', TooltipStates)
+    app.component('PaginationStates', PaginationStates)
+    app.component('ProgressStates', ProgressStates)
   }
 }
