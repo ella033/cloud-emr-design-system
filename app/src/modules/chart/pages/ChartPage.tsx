@@ -49,6 +49,7 @@ export default function ChartPage() {
   const [activePatient, setActivePatient] = useState('hong')
   const [activeTab, setActiveTab] = useState('전체')
   const [gridWidth, setGridWidth] = useState(800)
+  const [gridHeight, setGridHeight] = useState(600)
   const [showModuleSettings, setShowModuleSettings] = useState(false)
   const [activeModules, setActiveModules] = useState(defaultActiveModules)
   const [sidebarVisible, setSidebarVisible] = useState(true)
@@ -56,12 +57,15 @@ export default function ChartPage() {
   const mainRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const updateWidth = () => {
-      if (mainRef.current) setGridWidth(mainRef.current.offsetWidth - 16)
+    const updateSize = () => {
+      if (mainRef.current) {
+        setGridWidth(mainRef.current.offsetWidth - 16)
+        setGridHeight(mainRef.current.offsetHeight - 16)
+      }
     }
-    updateWidth()
-    window.addEventListener('resize', updateWidth)
-    return () => window.removeEventListener('resize', updateWidth)
+    updateSize()
+    window.addEventListener('resize', updateSize)
+    return () => window.removeEventListener('resize', updateSize)
   }, [sidebarVisible, quickPanelVisible])
 
   const tabs = ['전체', '대기', '진료중', '완료']
@@ -146,7 +150,7 @@ export default function ChartPage() {
           <ReactGridLayout
             className="card-grid-layout"
             cols={4}
-            rowHeight={80}
+            rowHeight={Math.floor((gridHeight - 8 * 9) / 10)}
             width={gridWidth}
             margin={[8, 8]}
             draggableHandle=".card-header"
