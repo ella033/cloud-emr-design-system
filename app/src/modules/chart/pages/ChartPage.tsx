@@ -96,119 +96,192 @@ export default function ChartPage() {
           </div>
         </aside>
 
-        {/* Main Grid — CSS Grid 기반, 뷰포트 fit */}
+        {/* Main Grid — activeModules 기반 동적 렌더링 */}
         <div className="chart-grid">
-          {/* Row 1: 환자정보 | 히스토리 */}
-          <div className="chart-row" style={{ flex: '1 1 50%' }}>
-            <div className="chart-cell" style={{ flex: '1 1 50%' }}>
-              <Card title="환자 기본정보" icon={<Icon name="user" size={14} />}
-                actions={<button className="text-btn"><Icon name="edit" size={12} /></button>}>
-                <PatientInfo />
-              </Card>
-            </div>
-            <div className="chart-cell" style={{ flex: '1 1 50%' }}>
-              <Card title="내원 히스토리" icon={<Icon name="calendar" size={14} />}
-                actions={<button className="text-btn"><Icon name="filter" size={12} /></button>}>
-                <div className="thread-list">
-                  <div className="thread-card current">
-                    <div className="thread-header"><span className="thread-date">04.05 (오늘)</span><Badge variant="solid" color="blue" size="xsmall">진료중</Badge></div>
-                    <div className="thread-body">
-                      <div className="thread-row"><Icon name="alert-circle" size={11} /><span className="tl">증상</span>두통, 발열 38.2°C, 기침</div>
-                      <div className="thread-row"><Icon name="clipboard" size={11} /><span className="tl">진단</span>J06.9 급성 상기도감염</div>
-                      <div className="thread-row"><Icon name="pill" size={11} /><span className="tl">처방</span>타이레놀 500mg 외 1건</div>
-                      <div className="thread-row"><Icon name="heart" size={11} /><span className="tl">바이탈</span>BP 130/85, HR 78</div>
-                    </div>
-                  </div>
-                  <div className="thread-card">
-                    <div className="thread-header"><span className="thread-date">03.15</span><Badge variant="solid" color="green" size="xsmall">완료</Badge></div>
-                    <div className="thread-body">
-                      <div className="thread-row"><Icon name="clipboard" size={11} /><span className="tl">진단</span>Z00.0 건강검진</div>
-                      <div className="thread-row"><Icon name="pill" size={11} /><span className="tl">처방</span>아무로디핀 5mg (갱신)</div>
-                      <div className="thread-row"><Icon name="chart" size={11} /><span className="tl">검사</span>CBC, 간기능, 혈당, 지질</div>
-                    </div>
-                  </div>
-                  <div className="thread-card">
-                    <div className="thread-header"><span className="thread-date">01.20</span><Badge variant="solid" color="green" size="xsmall">완료</Badge></div>
-                    <div className="thread-body">
-                      <div className="thread-row"><Icon name="alert-circle" size={11} /><span className="tl">증상</span>고열 39.2°C, 근육통</div>
-                      <div className="thread-row"><Icon name="clipboard" size={11} /><span className="tl">진단</span>J11 인플루엔자</div>
-                      <div className="thread-row"><Icon name="pill" size={11} /><span className="tl">처방</span>타미플루 75mg</div>
-                    </div>
-                  </div>
+          {/* Row 1 */}
+          {(activeModules.includes('patient-info') || activeModules.includes('visit-thread') || activeModules.includes('vital-table')) && (
+            <div className="chart-row" style={{ flex: '1 1 50%' }}>
+              {activeModules.includes('patient-info') && (
+                <div className="chart-cell" style={{ flex: '1 1 50%' }}>
+                  <Card title="환자 기본정보" icon={<Icon name="user" size={14} />}
+                    actions={<button className="text-btn"><Icon name="edit" size={12} /></button>}>
+                    <PatientInfo />
+                  </Card>
                 </div>
-              </Card>
+              )}
+              {activeModules.includes('visit-thread') && (
+                <div className="chart-cell" style={{ flex: '1 1 50%' }}>
+                  <Card title="내원 히스토리" icon={<Icon name="calendar" size={14} />}
+                    actions={<button className="text-btn"><Icon name="filter" size={12} /></button>}>
+                    <div className="thread-list">
+                      <div className="thread-card current">
+                        <div className="thread-header"><span className="thread-date">04.05 (오늘)</span><Badge variant="solid" color="blue" size="xsmall">진료중</Badge></div>
+                        <div className="thread-body">
+                          <div className="thread-row"><Icon name="alert-circle" size={11} /><span className="tl">증상</span>두통, 발열 38.2°C, 기침</div>
+                          <div className="thread-row"><Icon name="clipboard" size={11} /><span className="tl">진단</span>J06.9 급성 상기도감염</div>
+                          <div className="thread-row"><Icon name="pill" size={11} /><span className="tl">처방</span>타이레놀 500mg 외 1건</div>
+                          <div className="thread-row"><Icon name="heart" size={11} /><span className="tl">바이탈</span>BP 130/85, HR 78</div>
+                        </div>
+                      </div>
+                      <div className="thread-card">
+                        <div className="thread-header"><span className="thread-date">03.15</span><Badge variant="solid" color="green" size="xsmall">완료</Badge></div>
+                        <div className="thread-body">
+                          <div className="thread-row"><Icon name="clipboard" size={11} /><span className="tl">진단</span>Z00.0 건강검진</div>
+                          <div className="thread-row"><Icon name="pill" size={11} /><span className="tl">처방</span>아무로디핀 5mg (갱신)</div>
+                          <div className="thread-row"><Icon name="chart" size={11} /><span className="tl">검사</span>CBC, 간기능, 혈당, 지질</div>
+                        </div>
+                      </div>
+                      <div className="thread-card">
+                        <div className="thread-header"><span className="thread-date">01.20</span><Badge variant="solid" color="green" size="xsmall">완료</Badge></div>
+                        <div className="thread-body">
+                          <div className="thread-row"><Icon name="alert-circle" size={11} /><span className="tl">증상</span>고열 39.2°C, 근육통</div>
+                          <div className="thread-row"><Icon name="clipboard" size={11} /><span className="tl">진단</span>J11 인플루엔자</div>
+                          <div className="thread-row"><Icon name="pill" size={11} /><span className="tl">처방</span>타미플루 75mg</div>
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
+              )}
+              {activeModules.includes('vital-table') && (
+                <div className="chart-cell" style={{ flex: '1 1 40%' }}>
+                  <Card title="바이탈" icon={<Icon name="heart" size={14} />}>
+                    <VitalTable />
+                  </Card>
+                </div>
+              )}
             </div>
-          </div>
+          )}
 
-          {/* Row 2: 진단 및 처방 (full width) */}
-          <div className="chart-row" style={{ flex: '1 1 30%' }}>
-            <div className="chart-cell" style={{ flex: 1 }}>
-              <Card title="진단 및 처방" icon={<Icon name="pill" size={14} />}
-                footer={<><Button variant="outline" size="small">임시 저장</Button><Button variant="primary" size="small">처방 전송</Button></>}>
-                <div style={{ display: 'flex', gap: 16 }}>
-                  <div style={{ flex: 1 }}>
-                    <div className="section-label">진단</div>
-                    <Input leftIcon="search" placeholder="KCD 코드 또는 질환명 검색" inputSize="small" />
-                    <div className="dx-list">
-                      <div className="dx-item"><span className="dx-badge primary">주</span> J06.9 급성 상기도감염 <button className="dx-remove"><Icon name="close" size={12} /></button></div>
-                      <div className="dx-item"><span className="dx-badge sub">부</span> R51 두통 <button className="dx-remove"><Icon name="close" size={12} /></button></div>
+          {/* Row 2: 진단 및 처방 */}
+          {activeModules.includes('diagnosis-order') && (
+            <div className="chart-row" style={{ flex: '1 1 30%' }}>
+              <div className="chart-cell" style={{ flex: 1 }}>
+                <Card title="진단 및 처방" icon={<Icon name="pill" size={14} />}
+                  footer={<><Button variant="outline" size="small">임시 저장</Button><Button variant="primary" size="small">처방 전송</Button></>}>
+                  <div style={{ display: 'flex', gap: 16 }}>
+                    <div style={{ flex: 1 }}>
+                      <div className="section-label">진단</div>
+                      <Input leftIcon="search" placeholder="KCD 코드 또는 질환명 검색" inputSize="small" />
+                      <div className="dx-list">
+                        <div className="dx-item"><span className="dx-badge primary">주</span> J06.9 급성 상기도감염 <button className="dx-remove"><Icon name="close" size={12} /></button></div>
+                        <div className="dx-item"><span className="dx-badge sub">부</span> R51 두통 <button className="dx-remove"><Icon name="close" size={12} /></button></div>
+                      </div>
+                    </div>
+                    <div style={{ flex: 2 }}>
+                      <div className="section-label">처방</div>
+                      <table className="rx-table">
+                        <thead><tr><th>약품명</th><th className="c">용량</th><th className="c">횟수</th><th className="c">일수</th><th className="c">경로</th><th></th></tr></thead>
+                        <tbody>
+                          <tr><td className="fw">타이레놀 500mg</td><td className="c mono">1T</td><td className="c mono">3회</td><td className="c mono">3일</td><td className="c">경구</td><td className="c"><button className="dx-remove"><Icon name="close" size={10} /></button></td></tr>
+                          <tr><td className="fw">클로르페니라민 4mg</td><td className="c mono">1T</td><td className="c mono">2회</td><td className="c mono">3일</td><td className="c">경구</td><td className="c"><button className="dx-remove"><Icon name="close" size={10} /></button></td></tr>
+                        </tbody>
+                      </table>
+                      <button className="text-btn"><Icon name="plus" size={12} /> 약품 추가</button>
                     </div>
                   </div>
-                  <div style={{ flex: 2 }}>
-                    <div className="section-label">처방</div>
+                </Card>
+              </div>
+            </div>
+          )}
+
+          {/* Row 3: 메모 + 채팅 + 추가 모듈 */}
+          {(activeModules.includes('clinical-note') || activeModules.includes('patient-chat') || activeModules.includes('symptom-input') || activeModules.includes('lab-result') || activeModules.includes('image-viewer') || activeModules.includes('medication-timeline')) && (
+            <div className="chart-row" style={{ flex: '1 1 20%' }}>
+              {activeModules.includes('clinical-note') && (
+                <div className="chart-cell" style={{ flex: 1 }}>
+                  <Card title="임상메모" icon={<Icon name="edit" size={14} />}
+                    footer={<span className="auto-save"><Icon name="check-circle" size={12} /> 자동저장 14:42</span>}>
+                    <div className="soap">
+                      {[
+                        { key: 'S', text: '3일 전부터 두통과 발열 지속. 기침은 어제부터.' },
+                        { key: 'O', text: 'BP 130/85, HR 78, BT 37.8. 인후 발적(+).' },
+                        { key: 'A', text: '급성 상기도감염 의심' },
+                        { key: 'P', text: '대증치료 처방, 3일 후 f/u' },
+                      ].map(s => (
+                        <div key={s.key} className="soap-row">
+                          <span className="soap-label">{s.key}</span>
+                          <span className="soap-text">{s.text}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </Card>
+                </div>
+              )}
+              {activeModules.includes('patient-chat') && (
+                <div className="chart-cell" style={{ flex: 1 }}>
+                  <Card title="환자메모" icon={<Icon name="message" size={14} />}>
+                    <div className="chat">
+                      <div className="chat-msg sent">
+                        <div className="chat-sender">오윤경 의사 · 14:35</div>
+                        <div className="chat-bubble sent">혈압이 약간 높으니 추적 관찰 필요합니다.</div>
+                      </div>
+                      <div className="chat-msg received">
+                        <div className="chat-sender">김간호사 · 14:37</div>
+                        <div className="chat-bubble received">네, 다음 내원 시 혈압 재측정 예약했습니다.</div>
+                      </div>
+                    </div>
+                    <div className="chat-input-row">
+                      <input type="text" placeholder="메시지 입력..." className="chat-input" />
+                      <button className="chat-send"><Icon name="chevron-right" size={14} /></button>
+                    </div>
+                  </Card>
+                </div>
+              )}
+              {activeModules.includes('symptom-input') && (
+                <div className="chart-cell" style={{ flex: 1 }}>
+                  <Card title="증상 입력" icon={<Icon name="stethoscope" size={14} />}>
+                    <textarea className="symptom-textarea" placeholder="환자 증상을 자유롭게 기록하세요" />
+                    <div className="symptom-tags">
+                      {['두통', '발열', '기침', '콧물', '인후통', '복통'].map(t => (
+                        <button key={t} className="symptom-tag">{t}</button>
+                      ))}
+                    </div>
+                  </Card>
+                </div>
+              )}
+              {activeModules.includes('lab-result') && (
+                <div className="chart-cell" style={{ flex: 1 }}>
+                  <Card title="검사 결과" icon={<Icon name="chart" size={14} />}>
                     <table className="rx-table">
-                      <thead><tr><th>약품명</th><th className="c">용량</th><th className="c">횟수</th><th className="c">일수</th><th className="c">경로</th><th></th></tr></thead>
+                      <thead><tr><th>항목</th><th className="c">결과</th><th className="c">판정</th></tr></thead>
                       <tbody>
-                        <tr><td className="fw">타이레놀 500mg</td><td className="c mono">1T</td><td className="c mono">3회</td><td className="c mono">3일</td><td className="c">경구</td><td className="c"><button className="dx-remove"><Icon name="close" size={10} /></button></td></tr>
-                        <tr><td className="fw">클로르페니라민 4mg</td><td className="c mono">1T</td><td className="c mono">2회</td><td className="c mono">3일</td><td className="c">경구</td><td className="c"><button className="dx-remove"><Icon name="close" size={10} /></button></td></tr>
+                        <tr><td>WBC</td><td className="c mono" style={{color:'#DC2626',fontWeight:600}}>11.2</td><td className="c"><Badge variant="solid" color="red" size="xsmall">H</Badge></td></tr>
+                        <tr><td>RBC</td><td className="c mono">4.85</td><td className="c"><Badge variant="solid" color="green" size="xsmall">N</Badge></td></tr>
+                        <tr><td>Platelet</td><td className="c mono" style={{color:'#CA8A04',fontWeight:600}}>135</td><td className="c"><Badge variant="solid" color="yellow" size="xsmall">L</Badge></td></tr>
                       </tbody>
                     </table>
-                    <button className="text-btn"><Icon name="plus" size={12} /> 약품 추가</button>
-                  </div>
+                  </Card>
                 </div>
-              </Card>
-            </div>
-          </div>
-
-          {/* Row 3: 임상메모 | 환자메모 */}
-          <div className="chart-row" style={{ flex: '1 1 20%' }}>
-            <div className="chart-cell" style={{ flex: '1 1 50%' }}>
-              <Card title="임상메모" icon={<Icon name="edit" size={14} />}
-                footer={<span className="auto-save"><Icon name="check-circle" size={12} /> 자동저장 14:42</span>}>
-                <div className="soap">
-                  {[
-                    { key: 'S', text: '3일 전부터 두통과 발열 지속. 기침은 어제부터.' },
-                    { key: 'O', text: 'BP 130/85, HR 78, BT 37.8. 인후 발적(+).' },
-                    { key: 'A', text: '급성 상기도감염 의심' },
-                    { key: 'P', text: '대증치료 처방, 3일 후 f/u' },
-                  ].map(s => (
-                    <div key={s.key} className="soap-row">
-                      <span className="soap-label">{s.key}</span>
-                      <span className="soap-text">{s.text}</span>
+              )}
+              {activeModules.includes('image-viewer') && (
+                <div className="chart-cell" style={{ flex: 1 }}>
+                  <Card title="이미지 뷰어" icon={<Icon name="image" size={14} />}>
+                    <div className="image-placeholder"><Icon name="image" size={32} /><span>Chest X-ray (2026.03.15)</span></div>
+                  </Card>
+                </div>
+              )}
+              {activeModules.includes('medication-timeline') && (
+                <div className="chart-cell" style={{ flex: 1 }}>
+                  <Card title="약물 타임라인" icon={<Icon name="clock" size={14} />}>
+                    <div className="med-timeline-mini">
+                      <div className="med-bar"><span className="med-name">아스피린 100mg</span><div className="med-track"><div className="med-fill stopped" style={{width:'35%'}} /></div></div>
+                      <div className="med-bar"><span className="med-name">클로피도그렐 75mg</span><div className="med-track"><div className="med-fill active" style={{width:'65%', marginLeft:'35%'}} /></div></div>
+                      <div className="med-bar"><span className="med-name">메트포르민</span><div className="med-track"><div className="med-fill step" style={{width:'100%'}} /></div></div>
                     </div>
-                  ))}
+                  </Card>
                 </div>
-              </Card>
+              )}
             </div>
-            <div className="chart-cell" style={{ flex: '1 1 50%' }}>
-              <Card title="환자메모" icon={<Icon name="message" size={14} />}>
-                <div className="chat">
-                  <div className="chat-msg sent">
-                    <div className="chat-sender">오윤경 의사 · 14:35</div>
-                    <div className="chat-bubble sent">혈압이 약간 높으니 추적 관찰 필요합니다.</div>
-                  </div>
-                  <div className="chat-msg received">
-                    <div className="chat-sender">김간호사 · 14:37</div>
-                    <div className="chat-bubble received">네, 다음 내원 시 혈압 재측정 예약했습니다.</div>
-                  </div>
-                </div>
-                <div className="chat-input-row">
-                  <input type="text" placeholder="메시지 입력..." className="chat-input" />
-                  <button className="chat-send"><Icon name="chevron-right" size={14} /></button>
-                </div>
-              </Card>
+          )}
+
+          {/* 활성 모듈 없을 때 */}
+          {activeModules.length === 0 && (
+            <div className="chart-empty">
+              <Icon name="plus" size={24} />
+              <p>왼쪽 [+ 카드 모듈] 버튼으로 카드를 추가하세요</p>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Quick Panel */}
