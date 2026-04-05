@@ -1,0 +1,109 @@
+/* ═══════════════════════════════════════════
+   Patient Info Card
+   ═══════════════════════════════════════════ */
+
+.pi-card { display: flex; flex-direction: column; gap: 0; }
+
+/* 알러지 경고 바 */
+.pi-alert-bar {
+  display: flex; align-items: center; gap: 6px; padding: 6px 10px;
+  background: #FEF2F2; color: #DC2626; font-size: 11px; font-weight: 600;
+  border-bottom: 1px solid #FECACA; margin: -14px -14px 10px;
+}
+[data-theme="dark"] .pi-alert-bar { background: #450A0A; color: #F87171; border-color: #7F1D1D; }
+
+/* 핵심 인적정보 */
+.pi-core { padding-bottom: 10px; border-bottom: 1px solid var(--color-border-default); }
+.pi-row-top { display: flex; align-items: center; gap: 6px; margin-bottom: 3px; }
+.pi-name { font-size: 17px; font-weight: 700; }
+.pi-chart-no { font-size: 11px; color: var(--color-text-tertiary); font-family: var(--font-family-mono); }
+.pi-row-sub { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--color-text-secondary); }
+.pi-rrn { font-family: var(--font-family-mono); font-size: 11px; }
+.pi-divider { color: var(--color-text-tertiary); }
+
+/* 배지 영역 */
+.pi-section { padding: 8px 0; }
+.pi-badges { display: flex; gap: 4px; flex-wrap: wrap; }
+.pi-section-label {
+  font-size: 10px; font-weight: 600; color: var(--color-text-tertiary);
+  text-transform: uppercase; margin-bottom: 4px;
+}
+.pi-tag-hash {
+  font-size: 11px; color: #3B82F6; font-weight: 500;
+}
+
+/* 알러지 상세 */
+.pi-allergy-list { display: flex; flex-direction: column; gap: 4px; }
+.pi-allergy-row { display: flex; align-items: center; gap: 6px; font-size: 11px; }
+.pi-allergy-detail { color: var(--color-text-tertiary); font-size: 10px; }
+
+/* 가족 */
+.pi-family-list { display: flex; flex-direction: column; gap: 3px; }
+.pi-family-row { display: flex; align-items: center; gap: 8px; font-size: 11px; }
+.pi-family-rel {
+  font-size: 10px; font-weight: 600; color: var(--color-text-tertiary);
+  min-width: 28px;
+}
+.pi-family-tel { color: var(--color-text-tertiary); font-family: var(--font-family-mono); font-size: 10px; margin-left: auto; }
+
+/* 예방접종 */
+.pi-vacc-list { display: flex; flex-direction: column; gap: 3px; }
+.pi-vacc-row { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #22C55E; }
+.pi-vacc-row.pending { color: var(--color-text-tertiary); }
+.pi-vacc-date { margin-left: auto; font-size: 10px; font-family: var(--font-family-mono); color: var(--color-text-tertiary); }
+
+/* 메타 */
+.pi-meta-row { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--color-text-secondary); }
+.pi-meta-label { font-weight: 600; color: var(--color-text-tertiary); font-size: 10px; }
+
+/* 접기/펼치기 */
+.pi-toggle {
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  width: 100%; padding: 6px; border: none; background: transparent;
+  color: #3B82F6; font-size: 11px; font-weight: 500; cursor: pointer;
+  font-family: var(--font-family-base); border-top: 1px solid var(--color-border-default);
+  margin-top: 4px;
+}
+
+/* ═══════════════════════════════════════════
+   Vital Table
+   ═══════════════════════════════════════════ */
+
+.vt-card { display: flex; flex-direction: column; }
+
+.vt-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.vt-table th {
+  padding: 5px 6px; text-align: left; font-weight: 600;
+  color: var(--color-text-secondary); border-bottom: 1px solid var(--color-border-default);
+  font-size: 10px; white-space: nowrap;
+}
+.vt-table td {
+  padding: 6px; border-bottom: 1px solid var(--color-border-default);
+  white-space: nowrap;
+}
+.vt-table .c { text-align: center; }
+.vt-table .mono { font-family: var(--font-family-mono); }
+.vt-table .high { color: #DC2626; font-weight: 600; }
+.vt-table .low { color: #CA8A04; font-weight: 600; }
+.vt-note { font-size: 10px; color: var(--color-text-tertiary); }
+
+.vt-new-row { background: rgba(59,130,246,0.04); }
+.vt-input {
+  width: 44px; padding: 3px 4px; border: 1px solid var(--color-border-default);
+  border-radius: 4px; font-size: 11px; text-align: center; outline: none;
+  background: var(--color-bg-input); color: var(--color-text-primary);
+  font-family: var(--font-family-mono);
+}
+.vt-input.wide { width: 60px; text-align: left; }
+.vt-input:focus { border-color: var(--input-border-focus); }
+
+.vt-actions { display: flex; gap: 6px; margin-top: 6px; }
+.vt-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 10px; border: 1px solid var(--color-border-default); border-radius: 6px;
+  background: transparent; font-size: 11px; font-weight: 500; cursor: pointer;
+  color: var(--color-text-secondary); font-family: var(--font-family-base);
+}
+.vt-btn.primary { background: #3B82F6; color: #fff; border-color: #3B82F6; }
+.vt-btn:hover { background: var(--color-bg-card-hover); }
+.vt-btn.primary:hover { background: #2563EB; }
