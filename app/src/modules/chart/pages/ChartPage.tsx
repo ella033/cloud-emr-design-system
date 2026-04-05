@@ -57,15 +57,17 @@ export default function ChartPage() {
   const mainRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const updateSize = () => {
-      if (mainRef.current) {
-        setGridWidth(mainRef.current.offsetWidth - 16)
-        setGridHeight(mainRef.current.offsetHeight - 16)
-      }
-    }
-    updateSize()
-    window.addEventListener('resize', updateSize)
-    return () => window.removeEventListener('resize', updateSize)
+    if (!mainRef.current) return
+    const el = mainRef.current
+    const observer = new ResizeObserver(() => {
+      setGridWidth(el.clientWidth - 16)
+      setGridHeight(el.clientHeight - 16)
+    })
+    observer.observe(el)
+    // 초기값 즉시 설정
+    setGridWidth(el.clientWidth - 16)
+    setGridHeight(el.clientHeight - 16)
+    return () => observer.disconnect()
   }, [sidebarVisible, quickPanelVisible])
 
   const tabs = ['전체', '대기', '진료중', '완료']
