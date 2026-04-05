@@ -28,7 +28,8 @@ import { Badge } from '@cloud-emr/design-system';
 
 | Prop | Type | Required | Default | 설명 |
 |------|------|----------|---------|------|
-| `variant` | `'solid' \| 'subtle'` | Yes | - | solid: 진한 배경, subtle: 연한 배경 |
+| `variant` | `'solid' \| 'subtle' \| 'info'` | Yes | - | solid: 진한 배경(pill), subtle: 연한 배경(pill), info: 연한 배경(둥근 네모) |
+| `shape` | `'pill' \| 'rounded'` | No | `'pill'` | pill: 완전 둥근, rounded: 둥근 네모(radius-sm) |
 | `size` | `'xsmall' \| 'small' \| 'medium' \| 'large'` | No | `'small'` | 뱃지 크기 |
 | `color` | `'blue' \| 'green' \| 'red' \| 'yellow' \| 'teal' \| 'gray'` | No | `'blue'` | 뱃지 색상 |
 | `children` | `ReactNode` | Yes | - | 뱃지 내용 |

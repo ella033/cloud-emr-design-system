@@ -49,8 +49,16 @@ const emrExamples = [
       </div>
     </div>
 
-    <!-- Weak variant -->
-    <h4 class="section-title">Weak Variant (보조형)</h4>
+    <!-- Info variant (둥근 네모) -->
+    <h4 class="section-title">Info Variant (정보 표현 — 둥근 네모)</h4>
+    <div class="badge-row">
+      <div v-for="item in ['건강보험', 'A+ 형', '고혈압', '당뇨', '페니실린 알러지', '내과']" :key="'info-'+item" class="badge-col">
+        <span class="badge badge-info">{{ item }}</span>
+      </div>
+    </div>
+
+    <!-- Subtle variant -->
+    <h4 class="section-title">Subtle Variant (보조형)</h4>
     <div class="badge-row">
       <div v-for="c in colors" :key="'subtle-'+c" class="badge-col">
         <span
@@ -139,6 +147,14 @@ const emrExamples = [
   font-size: 12px;
   font-weight: 500;
   white-space: nowrap;
+}
+.badge-info {
+  border-radius: 6px;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+  border: 1px solid var(--vp-c-divider);
+  padding: 3px 10px;
+  font-size: 12px;
 }
 
 .badge-color-name {
