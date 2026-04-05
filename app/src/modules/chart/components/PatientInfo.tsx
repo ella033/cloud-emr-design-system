@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import Icon from '../ui/Icon'
-import Badge from '../ui/Badge'
+import Icon from '../../../components/ui/Icon'
+import Badge from '../../../components/ui/Badge'
 
 interface PatientInfoProps {
   collapsed?: boolean
