@@ -7,6 +7,9 @@ import Button from '../components/ui/Button'
 import Badge from '../components/ui/Badge'
 import Input from '../components/ui/Input'
 import Card from '../components/ui/Card'
+import PatientInfo from '../components/modules/PatientInfo'
+import VitalTable from '../components/modules/VitalTable'
+import '../components/modules/modules.css'
 
 // ─── Data ───
 const patients = [
@@ -25,7 +28,7 @@ const statusConfig = {
 }
 
 const allModules = [
-  { id: 'patient-info', name: '환자 기본정보', icon: 'user', defaultW: 2, defaultH: 3 },
+  { id: 'patient-info', name: '환자 기본정보', icon: 'user', defaultW: 2, defaultH: 5 },
   { id: 'visit-thread', name: '내원 히스토리', icon: 'calendar', defaultW: 2, defaultH: 6 },
   { id: 'diagnosis-order', name: '진단 및 처방', icon: 'pill', defaultW: 4, defaultH: 4 },
   { id: 'clinical-note', name: '임상메모', icon: 'edit', defaultW: 2, defaultH: 3 },
@@ -173,16 +176,9 @@ export default function ChartPage() {
             {/* 환자 기본정보 */}
             {activeModules.includes('patient-info') && (
               <div key="patient-info">
-                <Card title="환자 기본정보" icon={<Icon name="user" size={14} />}>
-                  <div className="pi-name">홍길동 <span className="pi-sub">(남 / 45세)</span></div>
-                  <div className="pi-birth">1981.03.15 · 810315-1******</div>
-                  <div className="pi-tags">
-                    <Badge variant="info" size="xsmall">건강보험</Badge>
-                    <Badge variant="info" size="xsmall">A+ 형</Badge>
-                    <Badge variant="info" size="xsmall">내과</Badge>
-                    <Badge variant="subtle" color="red" size="xsmall">알러지: 페니실린</Badge>
-                  </div>
-                  <div className="pi-contact"><Icon name="link" size={12} /> 010-1234-5678</div>
+                <Card title="환자 기본정보" icon={<Icon name="user" size={14} />}
+                  actions={<button className="text-btn"><Icon name="edit" size={12} /></button>}>
+                  <PatientInfo />
                 </Card>
               </div>
             )}
@@ -335,16 +331,11 @@ export default function ChartPage() {
               </div>
             )}
 
-            {/* 바이탈 추이 */}
+            {/* 바이탈 테이블 */}
             {activeModules.includes('vital-chart') && (
               <div key="vital-chart">
-                <Card title="바이탈 추이" icon={<Icon name="heart" size={14} />}>
-                  <div className="vital-mini">
-                    <div className="vital-row"><span className="vital-label">BP</span><span className="vital-val">130/85</span><span className="vital-trend up">↑</span></div>
-                    <div className="vital-row"><span className="vital-label">HR</span><span className="vital-val">78</span><span className="vital-trend stable">→</span></div>
-                    <div className="vital-row"><span className="vital-label">BT</span><span className="vital-val high">37.8°C</span><span className="vital-trend up">↑</span></div>
-                    <div className="vital-row"><span className="vital-label">SpO2</span><span className="vital-val">97%</span><span className="vital-trend stable">→</span></div>
-                  </div>
+                <Card title="바이탈" icon={<Icon name="heart" size={14} />}>
+                  <VitalTable />
                 </Card>
               </div>
             )}
