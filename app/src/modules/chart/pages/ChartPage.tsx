@@ -52,17 +52,62 @@ export default function ChartPage() {
   const [selectedCard, setSelectedCard] = useState<string | null>(null)
   const [symptomText, setSymptomText] = useState('')
 
+  const [dragId, setDragId] = useState<string | null>(null)
+  const [dropTarget, setDropTarget] = useState<string | null>(null)
+
   const has = (id: string) => activeModules.includes(id)
   const toggleModule = (id: string) => setActiveModules(prev => prev.includes(id) ? prev.filter(m => m !== id) : [...prev, id])
   const tabs = ['전체', '대기', '진료중', '완료']
   const filteredPatients = activeTab === '전체' ? patients : patients.filter(p => statusConfig[p.status].label === activeTab)
 
-  const sel = (id: string) => selectedCard === id ? 'grid-card-selected' : ''
+  const sel = (id: string) => {
+    const classes = []
+    if (selectedCard === id) classes.push('grid-card-selected')
+    if (dragId === id) classes.push('dragging')
+    if (dropTarget === id) classes.push('drop-target')
+    return classes.join(' ')
+  }
+
+  // 드래그로 카드 순서 변경
+  const handleDragStart = (id: string) => setDragId(id)
+  const handleDragOver = (e: React.DragEvent, id: string) => { e.preventDefault(); setDropTarget(id) }
+  const handleDragLeave = () => setDropTarget(null)
+  const handleDrop = (targetId: string) => {
+    if (dragId && dragId !== targetId) {
+      setActiveModules(prev => {
+        const next = [...prev]
+        const fromIdx = next.indexOf(dragId)
+        const toIdx = next.indexOf(targetId)
+        next.splice(fromIdx, 1)
+        next.splice(toIdx, 0, dragId)
+        return next
+      })
+    }
+    setDragId(null)
+    setDropTarget(null)
+  }
+  const handleDragEnd = () => { setDragId(null); setDropTarget(null) }
 
   // Row 1에 들어갈 모듈들
   const row1 = ['patient-info', 'visit-thread', 'vital-table'].filter(has)
   // Row 3에 들어갈 모듈들
   const row3 = ['clinical-note', 'patient-chat', 'symptom-input', 'lab-result', 'image-viewer', 'medication-timeline'].filter(has)
+
+  // 드래그 가능한 카드 래퍼
+  const DragCard = ({ id, children }: { id: string; children: React.ReactNode }) => (
+    <div
+      className={`split-card ${sel(id)}`}
+      onClick={() => setSelectedCard(id)}
+      draggable
+      onDragStart={() => handleDragStart(id)}
+      onDragOver={(e) => handleDragOver(e, id)}
+      onDragLeave={handleDragLeave}
+      onDrop={() => handleDrop(id)}
+      onDragEnd={handleDragEnd}
+    >
+      {children}
+    </div>
+  )
 
   return (
     <div className="chart-page">
@@ -107,28 +152,28 @@ export default function ChartPage() {
                 <Allotment>
                   {has('patient-info') && (
                     <Allotment.Pane minSize={200}>
-                      <div className={`split-card ${sel('patient-info')}`} onClick={() => setSelectedCard('patient-info')}>
+                      <DragCard id="patient-info">
                         <Card title="환자 기본정보" icon={<Icon name="user" size={14} />}><PatientInfo /></Card>
-                      </div>
+                      </DragCard>
                     </Allotment.Pane>
                   )}
                   {has('visit-thread') && (
                     <Allotment.Pane minSize={200}>
-                      <div className={`split-card ${sel('visit-thread')}`} onClick={() => setSelectedCard('visit-thread')}>
+                      <DragCard id="visit-thread">
                         <Card title="내원 히스토리" icon={<Icon name="calendar" size={14} />}>
                           <div className="thread-list">
                             <div className="thread-card current"><div className="thread-header"><span className="thread-date">04.05 (오늘)</span><Badge variant="solid" color="blue" size="xsmall">진료중</Badge></div><div className="thread-body"><div className="thread-row"><Icon name="alert-circle" size={11} /><span className="tl">증상</span>두통, 발열 38.2°C</div><div className="thread-row"><Icon name="clipboard" size={11} /><span className="tl">진단</span>J06.9 급성 상기도감염</div><div className="thread-row"><Icon name="pill" size={11} /><span className="tl">처방</span>타이레놀 500mg 외 1건</div></div></div>
                             <div className="thread-card"><div className="thread-header"><span className="thread-date">03.15</span><Badge variant="solid" color="green" size="xsmall">완료</Badge></div><div className="thread-body"><div className="thread-row"><Icon name="clipboard" size={11} /><span className="tl">진단</span>Z00.0 건강검진</div><div className="thread-row"><Icon name="pill" size={11} /><span className="tl">처방</span>아무로디핀 5mg</div></div></div>
                           </div>
                         </Card>
-                      </div>
+                      </DragCard>
                     </Allotment.Pane>
                   )}
                   {has('vital-table') && (
                     <Allotment.Pane minSize={200}>
-                      <div className={`split-card ${sel('vital-table')}`} onClick={() => setSelectedCard('vital-table')}>
+                      <DragCard id="vital-table">
                         <Card title="바이탈" icon={<Icon name="heart" size={14} />}><VitalTable /></Card>
-                      </div>
+                      </DragCard>
                     </Allotment.Pane>
                   )}
                 </Allotment>
@@ -138,7 +183,7 @@ export default function ChartPage() {
             {/* Row 2: 진단 및 처방 */}
             {has('diagnosis-order') && (
               <Allotment.Pane minSize={100}>
-                <div className={`split-card ${sel('diagnosis-order')}`} onClick={() => setSelectedCard('diagnosis-order')}>
+                <DragCard id="diagnosis-order">
                   <Card title="진단 및 처방" icon={<Icon name="pill" size={14} />}
                     footer={<><Button variant="outline" size="small">임시 저장</Button><Button variant="primary" size="small">처방 전송</Button></>}>
                     <div style={{ display: 'flex', gap: 12 }}>
@@ -146,7 +191,7 @@ export default function ChartPage() {
                       <div style={{ flex: 2 }}><div className="section-label">처방</div><table className="rx-table"><thead><tr><th>약품명</th><th className="c">용량</th><th className="c">횟수</th><th className="c">일수</th><th className="c">경로</th><th></th></tr></thead><tbody><tr><td className="fw">타이레놀 500mg</td><td className="c mono">1T</td><td className="c mono">3회</td><td className="c mono">3일</td><td className="c">경구</td><td className="c"><button className="dx-remove"><Icon name="close" size={10} /></button></td></tr><tr><td className="fw">클로르페니라민 4mg</td><td className="c mono">1T</td><td className="c mono">2회</td><td className="c mono">3일</td><td className="c">경구</td><td className="c"><button className="dx-remove"><Icon name="close" size={10} /></button></td></tr></tbody></table><button className="text-btn"><Icon name="plus" size={12} /> 약품 추가</button></div>
                     </div>
                   </Card>
-                </div>
+                </DragCard>
               </Allotment.Pane>
             )}
 
@@ -156,55 +201,55 @@ export default function ChartPage() {
                 <Allotment>
                   {has('clinical-note') && (
                     <Allotment.Pane minSize={180}>
-                      <div className={`split-card ${sel('clinical-note')}`} onClick={() => setSelectedCard('clinical-note')}>
+                      <DragCard id="clinical-note">
                         <Card title="임상메모" icon={<Icon name="edit" size={14} />} footer={<span className="auto-save"><Icon name="check-circle" size={12} /> 자동저장 14:42</span>}>
                           <div className="soap">{['S','O','A','P'].map(k => (<div key={k} className="soap-row"><span className="soap-label">{k}</span><span className="soap-text">{{S:'두통과 발열 지속.',O:'BP 130/85, BT 37.8.',A:'급성 상기도감염 의심',P:'대증치료 처방'}[k]}</span></div>))}</div>
                         </Card>
-                      </div>
+                      </DragCard>
                     </Allotment.Pane>
                   )}
                   {has('patient-chat') && (
                     <Allotment.Pane minSize={180}>
-                      <div className={`split-card ${sel('patient-chat')}`} onClick={() => setSelectedCard('patient-chat')}>
+                      <DragCard id="patient-chat">
                         <Card title="환자메모" icon={<Icon name="message" size={14} />}>
                           <div className="chat"><div className="chat-msg sent"><div className="chat-sender">오윤경 의사 · 14:35</div><div className="chat-bubble sent">혈압 추적 관찰 필요.</div></div><div className="chat-msg received"><div className="chat-sender">김간호사 · 14:37</div><div className="chat-bubble received">네, 예약했습니다.</div></div></div>
                           <div className="chat-input-row"><input type="text" placeholder="메시지 입력..." className="chat-input" /><button className="chat-send"><Icon name="chevron-right" size={14} /></button></div>
                         </Card>
-                      </div>
+                      </DragCard>
                     </Allotment.Pane>
                   )}
                   {has('symptom-input') && (
                     <Allotment.Pane minSize={180}>
-                      <div className={`split-card ${sel('symptom-input')}`} onClick={() => setSelectedCard('symptom-input')}>
+                      <DragCard id="symptom-input">
                         <Card title="증상 입력" icon={<Icon name="stethoscope" size={14} />}>
                           <FreeText value={symptomText} onChange={setSymptomText} placeholder="증상을 입력하세요" quickPhrases={symptomPhrases} />
                         </Card>
-                      </div>
+                      </DragCard>
                     </Allotment.Pane>
                   )}
                   {has('lab-result') && (
                     <Allotment.Pane minSize={180}>
-                      <div className={`split-card ${sel('lab-result')}`} onClick={() => setSelectedCard('lab-result')}>
+                      <DragCard id="lab-result">
                         <Card title="검사 결과" icon={<Icon name="chart" size={14} />}>
                           <table className="rx-table"><thead><tr><th>항목</th><th className="c">결과</th><th className="c">판정</th></tr></thead><tbody><tr><td>WBC</td><td className="c mono" style={{color:'#DC2626',fontWeight:600}}>11.2</td><td className="c"><Badge variant="solid" color="red" size="xsmall">H</Badge></td></tr><tr><td>RBC</td><td className="c mono">4.85</td><td className="c"><Badge variant="solid" color="green" size="xsmall">N</Badge></td></tr></tbody></table>
                         </Card>
-                      </div>
+                      </DragCard>
                     </Allotment.Pane>
                   )}
                   {has('image-viewer') && (
                     <Allotment.Pane minSize={180}>
-                      <div className={`split-card ${sel('image-viewer')}`} onClick={() => setSelectedCard('image-viewer')}>
+                      <DragCard id="image-viewer">
                         <Card title="이미지 뷰어" icon={<Icon name="image" size={14} />}><div className="image-placeholder"><Icon name="image" size={32} /><span>Chest X-ray</span></div></Card>
-                      </div>
+                      </DragCard>
                     </Allotment.Pane>
                   )}
                   {has('medication-timeline') && (
                     <Allotment.Pane minSize={180}>
-                      <div className={`split-card ${sel('medication-timeline')}`} onClick={() => setSelectedCard('medication-timeline')}>
+                      <DragCard id="medication-timeline">
                         <Card title="약물 타임라인" icon={<Icon name="clock" size={14} />}>
                           <div className="med-timeline-mini"><div className="med-bar"><span className="med-name">아스피린</span><div className="med-track"><div className="med-fill stopped" style={{width:'35%'}} /></div></div><div className="med-bar"><span className="med-name">클로피도그렐</span><div className="med-track"><div className="med-fill active" style={{width:'65%',marginLeft:'35%'}} /></div></div></div>
                         </Card>
-                      </div>
+                      </DragCard>
                     </Allotment.Pane>
                   )}
                 </Allotment>

@@ -71,6 +71,12 @@
 .chart-split-area {
   flex: 1; min-width: 0; min-height: 0; overflow: hidden;
 }
+
+/* sash(구분선) 숨김 — 호버 시에만 미세하게 */
+.chart-split-area .sash { background: transparent !important; }
+.chart-split-area .sash:hover { background: rgba(59,130,246,0.3) !important; }
+.chart-split-area .sash.active { background: rgba(59,130,246,0.5) !important; }
+
 .split-card {
   height: 100%; padding: 4px; overflow: hidden;
 }
@@ -80,6 +86,22 @@
 .split-card > .card > .card-body {
   flex: 1; overflow-y: auto; min-height: 0;
 }
+
+/* 드래그 가능한 카드 헤더 */
+.split-card .card-header { cursor: grab; user-select: none; }
+.split-card .card-header:active { cursor: grabbing; }
+
+/* 드래그 중 카드 스타일 */
+.split-card.dragging > .card {
+  opacity: 0.6; border: 2px dashed #3B82F6;
+}
+
+/* 드롭 타겟 하이라이트 */
+.split-card.drop-target > .card {
+  border-color: #3B82F6 !important;
+  background: rgba(59,130,246,0.04);
+}
+
 .grid-card-selected > .card {
   border-color: #3B82F6 !important;
   box-shadow: 0 0 0 2px rgba(59,130,246,0.15);
