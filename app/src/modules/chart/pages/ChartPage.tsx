@@ -22,9 +22,28 @@ const statusConfig = {
   emergency: { label: '응급', color: 'red' as const },
 }
 
+const allModules = [
+  { id: 'patient-info', name: '환자 기본정보', icon: 'user' },
+  { id: 'visit-thread', name: '내원 히스토리', icon: 'calendar' },
+  { id: 'diagnosis-order', name: '진단 및 처방', icon: 'pill' },
+  { id: 'clinical-note', name: '임상메모', icon: 'edit' },
+  { id: 'patient-chat', name: '환자메모', icon: 'message' },
+  { id: 'vital-table', name: '바이탈', icon: 'heart' },
+  { id: 'lab-result', name: '검사 결과', icon: 'chart' },
+  { id: 'image-viewer', name: '이미지 뷰어', icon: 'image' },
+  { id: 'medication-timeline', name: '약물 타임라인', icon: 'clock' },
+  { id: 'symptom-input', name: '증상 입력', icon: 'stethoscope' },
+]
+
 export default function ChartPage() {
   const [activePatient, setActivePatient] = useState('hong')
   const [activeTab, setActiveTab] = useState('전체')
+  const [showModuleSettings, setShowModuleSettings] = useState(false)
+  const [activeModules, setActiveModules] = useState(['patient-info', 'visit-thread', 'diagnosis-order', 'clinical-note', 'patient-chat'])
+
+  const toggleModule = (id: string) => {
+    setActiveModules(prev => prev.includes(id) ? prev.filter(m => m !== id) : [...prev, id])
+  }
 
   const tabs = ['전체', '대기', '진료중', '완료']
   const filteredPatients = activeTab === '전체' ? patients : patients.filter(p => statusConfig[p.status].label === activeTab)
@@ -34,6 +53,24 @@ export default function ChartPage() {
       <div className="chart-body">
         {/* Sidebar (환자 목록) */}
         <aside className="chart-sidebar">
+          {/* 카드 모듈 설정 버튼 */}
+          <div className="chart-module-btn-wrap">
+            <button className="chart-module-btn" onClick={() => setShowModuleSettings(!showModuleSettings)}>
+              <Icon name="plus" size={14} /> <span>카드 모듈</span>
+            </button>
+            {showModuleSettings && (
+              <div className="chart-module-dropdown">
+                <div className="cmd-header">카드 모듈 설정</div>
+                {allModules.map(m => (
+                  <label key={m.id} className="cmd-item">
+                    <input type="checkbox" checked={activeModules.includes(m.id)} onChange={() => toggleModule(m.id)} />
+                    <Icon name={m.icon} size={13} />
+                    <span>{m.name}</span>
+                  </label>
+                ))}
+              </div>
+            )}
+          </div>
           <div className="sidebar-search">
             <Icon name="search" size={14} />
             <input type="text" placeholder="환자 검색..." className="sidebar-search-input" />
