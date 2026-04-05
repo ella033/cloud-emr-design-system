@@ -1,0 +1,53 @@
+/* ═══ Reception Page ═══ */
+.reception-page { display: flex; gap: 12px; padding: 12px; height: 100%; }
+.reception-left { flex: 1; display: flex; flex-direction: column; gap: 12px; overflow-y: auto; }
+.reception-right { width: 480px; flex-shrink: 0; overflow-y: auto; }
+
+/* Search empty */
+.search-empty { text-align: center; padding: 20px; color: var(--color-text-tertiary); font-size: 13px; }
+.search-empty p { margin-bottom: 10px; }
+
+/* Patient summary */
+.rcp-patient-summary { padding-bottom: 12px; border-bottom: 1px solid var(--color-border-default); margin-bottom: 12px; }
+.rcp-patient-name { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+.rcp-sub { font-size: 12px; color: var(--color-text-tertiary); font-family: var(--font-family-mono); margin-left: 6px; }
+.rcp-patient-meta { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 8px; }
+.rcp-patient-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+
+/* Form */
+.rcp-form { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
+.rcp-form-row { display: flex; gap: 10px; }
+.rcp-form-field { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.rcp-label { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); }
+.rcp-select {
+  padding: 8px 10px; border: 1px solid var(--color-border-default); border-radius: var(--radius-md);
+  font-size: 13px; background: var(--color-bg-input); color: var(--color-text-primary);
+  font-family: var(--font-family-base); outline: none;
+}
+.rcp-select:focus { border-color: var(--input-border-focus); }
+
+/* Visit type */
+.rcp-visit-type { display: flex; gap: 0; border: 1px solid var(--color-border-default); border-radius: var(--radius-md); overflow: hidden; }
+.rcp-type-btn {
+  flex: 1; padding: 7px 16px; border: none; background: transparent;
+  font-size: 13px; font-weight: 500; color: var(--color-text-secondary);
+  cursor: pointer; font-family: var(--font-family-base);
+}
+.rcp-type-btn.active { background: #3B82F6; color: #fff; }
+
+/* Vital details */
+.rcp-vital-details { margin-top: 8px; }
+.rcp-vital-summary {
+  display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500;
+  color: var(--color-text-secondary); cursor: pointer; padding: 6px 0;
+}
+.rcp-vital-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+
+/* Tabs */
+.rcp-tabs { display: flex; gap: 2px; margin-bottom: 10px; }
+.rcp-tab {
+  flex: 1; padding: 6px 0; border: none; background: transparent;
+  font-size: 12px; font-weight: 500; color: var(--color-text-tertiary);
+  cursor: pointer; border-bottom: 2px solid transparent; font-family: var(--font-family-base);
+}
+.rcp-tab.active { color: #3B82F6; border-bottom-color: #3B82F6; }

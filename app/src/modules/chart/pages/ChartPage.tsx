@@ -49,17 +49,12 @@ const defaultActiveModules = ['patient-info', 'visit-thread', 'diagnosis-order',
 export default function ChartPage() {
   const [activePatient, setActivePatient] = useState('hong')
   const [activeTab, setActiveTab] = useState('전체')
-  const [darkMode, setDarkMode] = useState(false)
   const [gridWidth, setGridWidth] = useState(800)
   const [showModuleSettings, setShowModuleSettings] = useState(false)
   const [activeModules, setActiveModules] = useState(defaultActiveModules)
   const [sidebarVisible, setSidebarVisible] = useState(true)
   const [quickPanelVisible, setQuickPanelVisible] = useState(true)
   const mainRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light')
-  }, [darkMode])
 
   useEffect(() => {
     const updateWidth = () => {
@@ -86,29 +81,16 @@ export default function ChartPage() {
   })
 
   return (
-    <div className="emr-screen">
-      {/* Topbar */}
-      <header className="topbar">
-        <div className="topbar-left">
-          <button className="topbar-btn" onClick={() => setSidebarVisible(!sidebarVisible)}>
-            <Icon name="menu" size={16} />
-          </button>
-          <span className="topbar-logo">의사랑AI</span>
-        </div>
-        <div className="topbar-center" />
-        <div className="topbar-right">
-          <button className="topbar-btn" onClick={() => setShowModuleSettings(!showModuleSettings)} title="카드 모듈 설정">
-            <Icon name="plus" size={16} />
-          </button>
-          <button className="topbar-btn"><Icon name="search" size={16} /></button>
-          <button className="topbar-btn"><Icon name="bell" size={16} /></button>
-          <button className="topbar-btn"><Icon name="settings" size={16} /></button>
-          <button className="topbar-btn" onClick={() => setDarkMode(!darkMode)} title={darkMode ? 'Light 모드' : 'Dark 모드'}>
-            <Icon name={darkMode ? 'sun' : 'moon'} size={16} />
-          </button>
-          <div className="topbar-avatar">오</div>
-        </div>
-      </header>
+    <div className="chart-page">
+      {/* Chart Topbar (모듈 내부 도구바) */}
+      <div className="chart-toolbar">
+        <button className="topbar-btn" onClick={() => setSidebarVisible(!sidebarVisible)}>
+          <Icon name="menu" size={16} />
+        </button>
+        <button className="topbar-btn" onClick={() => setShowModuleSettings(!showModuleSettings)} title="카드 모듈 설정">
+          <Icon name="plus" size={16} />
+        </button>
+      </div>
 
       {/* Module settings dropdown */}
       {showModuleSettings && (
@@ -461,12 +443,6 @@ export default function ChartPage() {
         )}
       </div>
 
-      {/* Status Bar */}
-      <footer className="statusbar">
-        <span>접속: 오윤경 의사</span>
-        <span>대기 환자: {patients.filter(p => p.status === 'waiting').length}명</span>
-        <span><Icon name="check-circle" size={10} /> 마지막 저장: 14:42</span>
-      </footer>
     </div>
   )
 }
