@@ -70,10 +70,27 @@ export default function ChartPage() {
   const tabs = ['전체', '대기', '진료중', '완료']
   const filteredPatients = activeTab === '전체' ? patients : patients.filter(p => statusConfig[p.status].label === activeTab)
 
-  const layout = activeModules.map((id) => {
-    const mod = allModules.find(m => m.id === id)!
-    return { i: id, x: 0, y: 0, w: mod.w, h: mod.h, minW: 3, minH: 2 }
-  })
+  // 12그리드 레이아웃: x/y를 행 기반으로 자동 배치
+  const layout = (() => {
+    const items: { i: string; x: number; y: number; w: number; h: number; minW: number; minH: number }[] = []
+    let curX = 0
+    let curY = 0
+    let rowMaxH = 0
+
+    activeModules.forEach(id => {
+      const mod = allModules.find(m => m.id === id)!
+      // 현재 행에 들어갈 수 없으면 다음 행
+      if (curX + mod.w > 12) {
+        curX = 0
+        curY += rowMaxH
+        rowMaxH = 0
+      }
+      items.push({ i: id, x: curX, y: curY, w: mod.w, h: mod.h, minW: 3, minH: 2 })
+      curX += mod.w
+      rowMaxH = Math.max(rowMaxH, mod.h)
+    })
+    return items
+  })()
 
   const handleQuickApply = useCallback((phrase: any) => {
     if (phrase.soap) setSoapData((prev: any) => ({ s: phrase.soap?.s || prev.s, o: phrase.soap?.o || prev.o, a: phrase.soap?.a || prev.a, p: phrase.soap?.p || prev.p }))
