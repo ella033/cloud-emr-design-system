@@ -66,6 +66,7 @@ export default defineConfig({
           { text: 'Result State', link: '/components/result-state' },
           { text: 'Skeleton', link: '/components/skeleton' },
           { text: 'Menu', link: '/components/menu' },
+          { text: 'FreeText', link: '/components/freetext' },
           { text: 'Charts', link: '/components/charts' },
         ],
       },
